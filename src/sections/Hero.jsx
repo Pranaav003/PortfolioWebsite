@@ -34,7 +34,7 @@ const Hero = () => {
         </a>
       </ul>
       <button className="absolute sm:mt-[670px] xs:mt-[550px] gradient-border m-1 rounded-xl flex items-center justify-center dark:text-black bg-black dark:bg-white hover:bg-white dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white opacity-95 hover:opacity-100 text-white px-5 py-3 md:px-10 md:py-5 text-xl transform transition duration-500 hover:scale-110">
-        <a target="_blank" href="/Resume.pdf">Resume</a>
+        <a target="_blank" href="/PranaavIyer_Resume.docx">Resume</a>
       </button>
 
     </div>
