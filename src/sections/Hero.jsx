@@ -26,7 +26,7 @@ const Hero = () => {
         <a className="p-2" target="_blank" href="https://github.com/Pranaav003">
           <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/github.png" alt="Github Logo" />
         </a>
-        <a className="p-2" target="_blank" href="https://big-split-9b7.notion.site/Pranaav-Iyer-38b57774ddec43cfaa1232605e956edc?pvs=4">
+        <a className="p-2" target="_blank" href="https://big-split-9b7.notion.site/Pranaav-Iyer-0b9c2cdf571f4ddb93675e3109c9a5e5?pvs=4">
           <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/notion.png" alt="Portfolio Logo" />
         </a>
         <a className="p-2" target="_blank" href="mailto:pranaav.iyer@gmail.com">
