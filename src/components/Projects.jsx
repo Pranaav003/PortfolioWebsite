@@ -18,7 +18,7 @@ const projectsData = [
     {
         title: 'Trading Bot',
         description: 'A powerful machine learning-based trading bot that predicts stock prices with high accuracy, helping users make informed and profitable investment decisions.',
-        imageUrl: '/dist/TradingBotImg.png',
+        imageUrl: '/TradingBotImg.png',
         link: 'https://github.com/Pranaav003/Thinkorswim-Trading-Bot',
         date: 'October 2023',
         hovertitle: 'A Clinic in Aggressive Trading'
