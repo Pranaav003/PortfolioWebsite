@@ -20,6 +20,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
+    "react-tilt": "^1.0.2",
     "tailwindcss-animated": "^1.0.1",
     "typewriter-effect": "^2.21.0"
   },
