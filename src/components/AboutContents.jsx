@@ -15,7 +15,7 @@ const ProgressBar = () => {
     const javaInView = useInView(javaRef, { once: true });
 
     return (
-        <div className="relative sm:bottom-[150px] xs:bottom-[50px] px-10 font-bold font-inter sm:text-[16px] xs:text-[13px]">
+        <div className="relative sm:bottom-[150px] xs:bottom-[50px] xxs:text-xs px-10 font-bold font-inter sm:text-[16px] xs:text-[13px]">
             <div className="relative w-[50%] h-5 dark:bg-neutral-800 rounded-full">
                 <p className="absolute bottom-5">AI / MACHINE LEARNING / PYTHON</p>
                 <motion.div
@@ -68,7 +68,7 @@ const ProgressBar = () => {
                 </motion.div>
             </div>
 
-            <div className="relative text-center float-right bottom-[201px] px-10 w-[50%] font-inter opacity-50 font-normal lg:leading-[35.5px] lg:text-xl md:leading-[29px] md:text-lg md:px-0 sm:leading-[23px] sm:text-normal sm:px-0 xs:leading-[20px] xs:text-sm xs:px-0">
+            <div className="relative text-center float-right bottom-[201px] px-10 xxs:p-0 w-[50%] font-inter opacity-50 font-normal lg:leading-[35.5px] lg:text-xl md:leading-[29px] md:text-lg md:px-0 sm:leading-[23px] sm:text-normal sm:px-0 xs:leading-[20px] xs:text-sm xs:px-0">
                 I'm Pranaav Iyer, a 21 year old developer with a strong passion for innovation and problem solving. I specialize in crafting
                 satisfying software solutions that prioritize creativeness and usability, involving industry standards from AI to frontend/backend
                 technologies.
