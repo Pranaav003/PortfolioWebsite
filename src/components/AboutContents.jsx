@@ -16,7 +16,7 @@ const ProgressBar = () => {
 
     return (
         <div className="relative sm:bottom-[150px] xs:bottom-[50px] xxs:text-xs px-10 font-bold font-inter sm:text-[16px] xs:text-[13px]">
-            <div className="relative w-[50%] h-5 dark:bg-neutral-800 rounded-full">
+            <div className="relative w-[50%] h-5 dark:bg-neutral-800 bg-gray-200 rounded-full">
                 <p className="absolute bottom-5">AI / MACHINE LEARNING / PYTHON</p>
                 <motion.div
                     ref={aiRef}
@@ -29,7 +29,7 @@ const ProgressBar = () => {
                 </motion.div>
             </div>
 
-            <div className="w-[50%] relative h-5 dark:bg-neutral-800 rounded-full mt-8">
+            <div className="w-[50%] relative h-5 dark:bg-neutral-800 bg-gray-200 rounded-full mt-8">
                 <p className="absolute bottom-5">HTML / CSS / TAILWIND</p>
                 <motion.div
                     ref={htmlRef}
@@ -42,7 +42,7 @@ const ProgressBar = () => {
                 </motion.div>
             </div>
 
-            <div className="w-[50%] relative h-5 dark:bg-neutral-800 rounded-full mt-8">
+            <div className="w-[50%] relative h-5 dark:bg-neutral-800 bg-gray-200 rounded-full mt-8">
                 <p className="absolute bottom-5">REACT</p>
                 <motion.div
                     ref={reactRef}
@@ -55,7 +55,7 @@ const ProgressBar = () => {
                 </motion.div>
             </div>
 
-            <div className="w-[50%] relative h-5 dark:bg-neutral-800 rounded-full mt-8">
+            <div className="w-[50%] relative h-5 dark:bg-neutral-800 bg-gray-200 rounded-full mt-8">
                 <p className="absolute bottom-5">JAVA / C</p>
                 <motion.div
                     ref={javaRef}
