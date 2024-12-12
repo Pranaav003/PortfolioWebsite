@@ -110,9 +110,9 @@ const Projects = () => {
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                                     <p className="text-gray-400 text-sm">{project.date}</p>
                                 </div>
-                                <div className="absolute inset-0 bg-gray-800 rounded-lg bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                                    <p className="text-xl font-semibold text-white">{project.hovertitle}</p>
-                                    <p className="text-white mt-2">{project.description}</p>
+                                <div className="absolute inset-0 dark:bg-gray-800 bg-gray-200 rounded-lg bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                                    <p className="text-xl font-semibold text-black dark:text-white">{project.hovertitle}</p>
+                                    <p className="dark:text-white text-black mt-2">{project.description}</p>
                                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline pt-3 mb-2 block">
                                         <button className="bg-white text-[#404040] px-3 py-1 rounded">View Project</button>
                                     </a>
