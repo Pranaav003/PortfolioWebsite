@@ -43,7 +43,7 @@ const projectsData = [
         title: 'News Web App',
         description: 'An AI-powered platform that curates and displays the latest news from diverse sources, delivering personalized updates to users in real-time.',
         imageUrl: '/News.png',
-        link: 'https://github.com/Pranaav003/AirbnbClone',
+        link: 'https://github.com/Pranaav003/NewsWebApp',
         date: 'August 2024',
         hovertitle: 'Breaking News'
     },
@@ -51,7 +51,7 @@ const projectsData = [
         title: 'Voicely',
         description: 'An AI-powered customer service solution that transcribes and analyzes customer concerns in real-time, generates personalized responses, and efficiently routes calls to the appropriate department for seamless support.',
         imageUrl: 'Voicely.png',
-        link: 'https://github.com/Pranaav003/AirbnbClone',
+        link: 'https://github.com/Pranaav003',
         date: 'September 2024',
         hovertitle: 'Freed from Annoyance'
     },
