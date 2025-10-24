@@ -1,9 +1,8 @@
-import ContactBoxes from '../components/ContactBoxes';
-
 const Contact = () => {
     return (
-        <div id="contact" className="w-[100%] text-center flex flex-col items-center font-inter">
-                <h2 className="relative text-4xl sm:bottom-[200px] xs:bottom-[50px] xxs:bottom-[-140px] font-black">Contact Me</h2>
+        <div className="relative text-center w-full flex flex-col items-center font-inter">
+                <h2 className="relative md:text-4xl sm:text-3xl xs:text-2xl font-black mb-4">Contact Me</h2>
+                <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">Let's Work Together</p>
         </div>
     )
 }

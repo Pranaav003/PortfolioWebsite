@@ -47,21 +47,21 @@ const Hero = () => {
           </div>
         </div>
         <ul className="absolute xxs:mt-[500px] bg-gray-100 dark:bg-white flex items-center justify-center p-1 rounded-3xl shadow-sm sm:mt-[460px] xs:mt-[360px] xs:scale-75 sm:scale-100">
-        <a className="p-2" target="_blank" href="https://www.linkedin.com/in/pranaav-iyer-4a1121172">
+        <a className="p-2" target="_blank" href="https://www.linkedin.com/in/pranaav-iyer-4a1121172" rel="noopener noreferrer">
           <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/linkedin.png" alt="LinkedIn Logo" />
         </a>
-        <a className="p-2" target="_blank" href="https://github.com/Pranaav003">
-          <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/github.png" alt="Github Logo" />
+        <a className="p-2" target="_blank" href="https://github.com/Pranaav003" rel="noopener noreferrer">
+          <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/github.png" alt="GitHub Logo" />
         </a>
-        <a className="p-2" target="_blank" href="https://big-split-9b7.notion.site/Pranaav-Iyer-0b9c2cdf571f4ddb93675e3109c9a5e5?pvs=4">
+        <a className="p-2" target="_blank" href="https://big-split-9b7.notion.site/Pranaav-Iyer-0b9c2cdf571f4ddb93675e3109c9a5e5?pvs=4" rel="noopener noreferrer">
           <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/notion.png" alt="Portfolio Logo" />
         </a>
-        <a className="p-2" target="_blank" href="mailto:pranaav.iyer@gmail.com">
-          <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/email.png" alt="Notion Logo" />
+        <a className="p-2" target="_blank" href="mailto:pranaav.iyer@gmail.com" rel="noopener noreferrer">
+          <img className="h-6 opacity-50 transition-opacity duration-200 ease-in-out hover:opacity-100" src="/email.png" alt="Email Logo" />
         </a>
       </ul>
       <button className="absolute sm:mt-[670px] xxs:mt-[400px] gradient-border m-1 rounded-xl flex items-center justify-center dark:text-black bg-black dark:bg-white hover:bg-white dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white opacity-95 hover:opacity-100 text-white px-5 py-3 md:px-10 md:py-5 text-xl transform transition duration-500 hover:scale-110">
-        <a target="_blank" href="/PranaavIyer_Resume.pdf">Resume</a>
+        <a target="_blank" href="/PranaavIyer_Resume.pdf" rel="noopener noreferrer">Resume</a>
       </button>
 
     </div>

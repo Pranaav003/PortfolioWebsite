@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tilt } from 'react-tilt'
 import { motion } from "motion/react"
 
@@ -61,65 +61,65 @@ const projectsData = [
     // Add more projects as needed
 
 const Projects = () => {
-    const isMobile = window.innerWidth <= 480;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth <= 480);
+        };
+
+        checkIsMobile();
+        window.addEventListener('resize', checkIsMobile);
+
+        return () => window.removeEventListener('resize', checkIsMobile);
+    }, []);
+
+    const ProjectCard = ({ project, index }) => {
+        const cardContent = (
+            <motion.div 
+                className="relative border rounded-lg shadow-lg p-3 sm:p-4 w-full max-w-sm mx-auto group transform transition-transform duration-300 hover:scale-105"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+                <div className="relative overflow-hidden rounded-t-lg">
+                    <img src={project.imageUrl} alt={project.title} className="w-full h-32 sm:h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-75"></div>
+                </div>
+                <div className="p-2 sm:p-4">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{project.title}</h3>
+                    <p className="text-gray-400 text-xs sm:text-sm">{project.date}</p>
+                </div>
+                <div className="absolute inset-0 dark:bg-gray-800 bg-gray-200 rounded-lg bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 sm:p-4">
+                    <p className="text-sm sm:text-lg md:text-xl font-semibold text-black dark:text-white text-center">{project.hovertitle}</p>
+                    <p className="dark:text-white text-black mt-1 sm:mt-2 text-xs sm:text-sm text-center px-2">{project.description}</p>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline pt-2 sm:pt-3 mb-1 sm:mb-2 block">
+                        <button className="bg-white text-[#404040] px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">View Project</button>
+                    </a>
+                </div>
+            </motion.div>
+        );
+
+        return isMobile ? (
+            <div key={index}>
+                {cardContent}
+            </div>
+        ) : (
+            <Tilt options={defaultOptions} key={index}>
+                {cardContent}
+            </Tilt>
+        );
+    };
 
     return (
-        <div id="portfolio" className="relative text-center w-full flex flex-col items-center font-inter mt-[-150px] lg:mt-[-250px] md:mt-[-250px]">
-            <div className="flex flex-wrap gap-6 justify-center mt-[-170px] md:mt-[-130px]">
+        <div className="relative text-center w-full flex flex-col items-center font-inter px-4">
+            <h2 className="relative text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8">
+                Selected Portfolio
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 w-full max-w-7xl">
                 {projectsData.map((project, index) => (
-                    isMobile ? (
-                        <div key={index} className="relative border rounded-lg shadow-lg p-4 w-80 group transform transition-transform duration-300 hover:scale-105">
-                            <motion.div 
-                                className="relative border rounded-lg shadow-lg p-4 w-80 group transform transition-transform duration-300 hover:scale-105"
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }} // Ensures the animation runs only once
-                                transition={{ duration: 0.5, delay: index * 0.3 }} // Reduced delay for faster loading
-                            >
-                                <div className="relative overflow-hidden rounded-t-lg">
-                                    <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-75"></div>
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                                    <p className="text-gray-400 text-sm">{project.date}</p>
-                                </div>
-                                <div className="absolute inset-0 bg-gray-800 rounded-lg bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                                    <p className="text-xl font-semibold text-white">{project.hovertitle}</p>
-                                    <p className="text-white mt-2">{project.description}</p>
-                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline pt-3 mb-2 block">
-                                        <button className="bg-white text-[#404040] px-3 py-1 rounded">View Project</button>
-                                    </a>
-                                </div>
-                            </motion.div>
-                        </div>
-                    ) : (
-                        <Tilt options={defaultOptions} key={index}>
-                            <motion.div 
-                                className="relative border rounded-lg shadow-lg p-4 w-80 group transform transition-transform duration-300 hover:scale-105"
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }} // Ensures the animation runs only once
-                                transition={{ duration: 0.5, delay: index * 0.3 }} // Reduced delay for faster loading
-                            >
-                                <div className="relative overflow-hidden rounded-t-lg">
-                                    <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-75"></div>
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                                    <p className="text-gray-400 text-sm">{project.date}</p>
-                                </div>
-                                <div className="absolute inset-0 dark:bg-gray-800 bg-gray-200 rounded-lg bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                                    <p className="text-xl font-semibold text-black dark:text-white">{project.hovertitle}</p>
-                                    <p className="dark:text-white text-black mt-2">{project.description}</p>
-                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline pt-3 mb-2 block">
-                                        <button className="bg-white text-[#404040] px-3 py-1 rounded">View Project</button>
-                                    </a>
-                                </div>
-                            </motion.div>
-                        </Tilt>
-                    )
+                    <ProjectCard key={index} project={project} index={index} />
                 ))}
             </div>
         </div>
