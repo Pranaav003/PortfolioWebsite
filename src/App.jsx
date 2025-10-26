@@ -6,39 +6,9 @@ import Projects from "./components/Projects";
 import ContactBoxes from "./components/ContactBoxes";
 import AnimatedCursor from "react-animated-cursor";
 
-// Cursor Component with visibility limited to sm screens and larger
-const newLocal = (
-  <AnimatedCursor
-    innerSize={8}
-    outerSize={35}
-    innerScale={1}
-    outerScale={1.5} // Reduced the outer scale
-    outerAlpha={0}
-    hasBlendMode={true}
-    innerStyle={{
-      backgroundColor: "rgba(0,0,0,0.5)",
-    }}
-    outerStyle={{
-      border: "3px solid rgb(255,255,255)",
-    }}
-    clickables={[
-      'a',
-      'input[type="text"]',
-      'input[type="email"]',
-      'input[type="number"]',
-      'input[type="submit"]',
-      'input[type="image"]',
-      'label[for]',
-      'select',
-      'textarea',
-      'button',
-      '.link'
-    ]}
-    showSystemCursor={false}
-    trailingSpeed={1}
-    className="hidden sm:block" // Ensure cursor is hidden on screens smaller than sm
-  />
-);
+const App = () => {
+  const [currentSection, setCurrentSection] = useState('home');
+  const [isMobile, setIsMobile] = useState(false);
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState('home');
