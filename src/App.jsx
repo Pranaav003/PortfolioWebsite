@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { Footer, Hero, About, Contact } from "./sections";
 import Nav from "./components/Nav";
 import AboutContents from "./components/AboutContents";
@@ -10,16 +10,8 @@ const App = () => {
   const [currentSection, setCurrentSection] = useState('home');
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640); // sm breakpoint in Tailwind
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+const App = () => {
+  const [currentSection, setCurrentSection] = useState('home');
 
   const handleSectionChange = useCallback((section) => {
     setCurrentSection(section);
@@ -72,37 +64,7 @@ const App = () => {
 
   return (
     <main className="relative dark:bg-black dark:text-white dark:bg-none min-h-screen flex flex-col">
-      {!isMobile && (
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={35}
-          innerScale={1}
-          outerScale={1.5}
-          outerAlpha={0}
-          hasBlendMode={true}
-          innerStyle={{
-            backgroundColor: "rgba(0,0,0,0.5)",
-          }}
-          outerStyle={{
-            border: "3px solid rgb(255,255,255)",
-          }}
-          clickables={[
-            'a',
-            'input[type="text"]',
-            'input[type="email"]',
-            'input[type="number"]',
-            'input[type="submit"]',
-            'input[type="image"]',
-            'label[for]',
-            'select',
-            'textarea',
-            'button',
-            '.link'
-          ]}
-          showSystemCursor={false}
-          trailingSpeed={1}
-        />
-      )}
+      {newLocal}
       <Nav currentSection={currentSection} setCurrentSection={handleSectionChange} />
       <div className="flex-1 flex flex-col transition-all duration-300 ease-in-out">
         {renderSection()}
