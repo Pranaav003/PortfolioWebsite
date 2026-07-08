@@ -6,23 +6,28 @@
 <title>Pranaav Iyer — ML Engineer & Builder</title>
 
 <!-- ─── SEO / Social ─────────────────────────── -->
-<meta name="description" content="Pranaav Iyer — ML Engineer & Full Stack Developer. M.S. Computer Science at NYU. I build intelligent systems that bridge raw data and real-world impact — real-time ASL translation, trading engines, and AI agents.">
+<meta name="description" content="Pranaav Iyer — ML Engineer & Full Stack Developer. M.S. CS at NYU. Building intelligent systems: real-time ASL translation, trading engines, and AI agents.">
 <meta name="author" content="Pranaav Iyer">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a0a0b">
-<link rel="canonical" href="https://pranaaviyer.onrender.com/">
+<link rel="canonical" href="https://pranaaviyer.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pranaav Iyer — ML Engineer & Builder">
 <meta property="og:description" content="ML Engineer & Full Stack Developer. M.S. CS @ NYU. Building intelligent systems — real-time ASL translation, trading engines, and AI agents.">
-<meta property="og:url" content="https://pranaaviyer.onrender.com/">
+<meta property="og:url" content="https://pranaaviyer.com/">
 <meta property="og:site_name" content="Pranaav Iyer">
+<meta property="og:image" content="https://pranaaviyer.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pranaav Iyer — ML Engineer & Builder">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pranaav Iyer — ML Engineer & Builder">
 <meta name="twitter:description" content="ML Engineer & Full Stack Developer. M.S. CS @ NYU. Building intelligent systems.">
+<meta name="twitter:image" content="https://pranaaviyer.com/og-card.png">
 
 <!-- Favicon (inline SVG — no extra file needed) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0b'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='52' font-weight='700' fill='%23c8ff00' text-anchor='middle'%3EPI%3C/text%3E%3C/svg%3E">
@@ -33,14 +38,26 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Pranaav Iyer",
-  "url": "https://pranaaviyer.onrender.com/",
+  "url": "https://pranaaviyer.com/",
   "jobTitle": "Machine Learning Engineer",
+  "worksFor": {"@type": "Organization", "name": "IBM"},
+  "hasOccupation": {"@type": "Occupation", "name": "RAS Intern"},
   "email": "mailto:pranaav.iyer@gmail.com",
   "alumniOf": [
     {"@type": "CollegeOrUniversity", "name": "New York University"},
     {"@type": "CollegeOrUniversity", "name": "Purdue University Fort Wayne"}
   ],
   "knowsAbout": ["Machine Learning", "Computer Vision", "Full Stack Development", "NLP", "Python", "React"],
+  "subjectOf": {
+    "@type": "ScholarlyArticle",
+    "headline": "AI-Based Sign Language to Text Translator Using Computer Vision and Deep Learning",
+    "author": {"@type": "Person", "name": "Pranaav Iyer"},
+    "publisher": {"@type": "Organization", "name": "IEEE"},
+    "isPartOf": "2025 6th International Conference on Data Intelligence and Cognitive Informatics (ICDICI)",
+    "datePublished": "2025",
+    "url": "https://doi.org/10.1109/ICDICI66477.2025.11135376",
+    "identifier": "10.1109/ICDICI66477.2025.11135376"
+  },
   "sameAs": [
     "https://www.linkedin.com/in/pranaav-iyer/",
     "https://github.com/Pranaav003"
@@ -56,7 +73,7 @@
 <noscript><style>
   [data-reveal], .hero-title .line-inner, .hero-subtitle,
   .section, .skills-section, .experience-section,
-  .projects-section, .education-section, .contact-section {
+  .projects-section, .publications-section, .education-section, .contact-section {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -78,7 +95,7 @@
     --bg-card: #18181b;
     --fg: #e8e6e3;
     --fg-muted: #8f8d8a;   /* was #7a7876 — raised to clear WCAG AA on elevated bg */
-    --fg-dim: #767472;     /* was #4a4947 (~2.2:1) — raised to ~4.6:1 for readable body text */
+    --fg-dim: #888684;     /* raised to clear WCAG AA 4.5:1 on all backgrounds incl. card blend */
     --accent: #c8ff00;
     --accent-soft: rgba(200, 255, 0, 0.08);
     --accent-glow: rgba(200, 255, 0, 0.15);
@@ -129,8 +146,9 @@
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
-    transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), background 0.3s;
+    transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), background 0.3s, opacity 0.3s;
     mix-blend-mode: difference;
+    opacity: 0;   /* revealed by JS on first mousemove — avoids a top-left flash on load */
   }
 
   .cursor-ring {
@@ -142,7 +160,8 @@
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
-    transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), border-color 0.3s;
+    transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), border-color 0.3s, opacity 0.3s;
+    opacity: 0;
   }
 
   .cursor-dot.hover {
@@ -607,7 +626,10 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: background 0.4s ease;
+    /* flex column so the progress bar can pin to the bottom and align
+       across every cell regardless of description length */
+    display: flex;
+    flex-direction: column;
     opacity: 0;
     transform: translateY(40px) scale(0.95);
     transition: opacity 0.6s ease, transform 0.6s var(--ease-out-expo), background 0.4s ease;
@@ -667,7 +689,7 @@
     width: 100%;
     height: 2px;
     background: var(--border);
-    margin-top: 24px;
+    margin-top: auto;      /* pin to bottom of the flex cell → bars align */
     position: relative;
     overflow: hidden;
   }
@@ -848,24 +870,6 @@
     transform: translateY(-4px);
   }
 
-  .project-card::after {
-    content: '→';
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    font-family: var(--font-mono);
-    font-size: 20px;
-    color: var(--accent);
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.4s, transform 0.4s var(--ease-out-expo);
-  }
-
-  .project-card:hover::after {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
   .project-card .card-number {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -908,6 +912,42 @@
     border-radius: 4px;
   }
 
+  .project-card .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-card .card-link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .project-card .card-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .project-card .card-link .arr {
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+
+  .project-card .card-link:hover .arr {
+    transform: translate(2px, -2px);
+  }
+
   .project-card .card-visual {
     position: absolute;
     top: 0;
@@ -920,6 +960,139 @@
 
   .project-card:hover .card-visual {
     opacity: 0.06;
+  }
+
+  /* ═══════════════════════════════════════════
+     PUBLICATIONS
+     ═══════════════════════════════════════════ */
+  .publications-section {
+    padding: 160px 48px;
+    position: relative;
+  }
+
+  .publications-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .pub-list {
+    margin-top: 80px;
+  }
+
+  .pub-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--border-accent);
+    padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 44px);
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s var(--ease-out-expo), border-color 0.3s;
+  }
+
+  .pub-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pub-card:hover {
+    border-color: var(--border-accent);
+  }
+
+  .pub-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    padding: 6px 14px;
+    border: 1px solid var(--border-accent);
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  .pub-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 2rem);
+    font-weight: 700;
+    color: var(--fg);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .pub-authors {
+    font-size: 14px;
+    color: var(--fg-muted);
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  .pub-authors .pub-me {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  .pub-authors .pub-first {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .pub-venue {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-dim);
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+  }
+
+  .pub-abstract {
+    font-size: 14px;
+    color: var(--fg-muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .pub-link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-accent);
+    padding-bottom: 3px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .pub-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .pub-link .arr {
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+
+  .pub-link:hover .arr {
+    transform: translate(2px, -2px);
+  }
+
+  .pub-doi {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0.04em;
   }
 
   /* ═══════════════════════════════════════════
@@ -1064,7 +1237,6 @@
     position: relative;
     z-index: 2;
     transition: color 0.4s;
-    will-change: transform;
   }
 
   .contact-link .link-arrow {
@@ -1099,6 +1271,7 @@
 
   .contact-link:hover .link-label {
     color: var(--accent);
+    will-change: transform;
   }
 
   /* ═══════════════════════════════════════════
@@ -1302,14 +1475,14 @@
     .nav-links { gap: 16px; }
     .nav-links a { font-size: 10px; }
     .section, .skills-section, .experience-section,
-    .projects-section, .education-section, .contact-section {
+    .projects-section, .publications-section, .education-section, .contact-section {
       padding: 100px 24px;
     }
     .hero { padding: 0 24px; }
     .hero-title .line-2 { margin-left: 8%; }
     .hero-title .line-3 { margin-left: 3%; }
     .about-grid { grid-template-columns: 1fr; gap: 60px; }
-    .skills-visual { grid-template-columns: 1fr; }
+    .skills-visual { grid-template-columns: repeat(2, 1fr); }
     .projects-grid { grid-template-columns: 1fr; }
     .edu-cards { flex-direction: column; }
     .exp-item { grid-template-columns: 1fr; gap: 16px; }
@@ -1322,6 +1495,10 @@
   @media (max-width: 600px) {
     .hero-title .line-2 { margin-left: 0; }
     .hero-title .line-3 { margin-left: 0; }
+    .skills-visual { grid-template-columns: 1fr; }
+    /* keep all five nav links reachable on narrow phones — wrap instead of overflow */
+    .nav-links { flex-wrap: wrap; justify-content: flex-end; gap: 6px 10px; }
+    .nav-links a { font-size: 9px; letter-spacing: 0.08em; }
   }
 
   /* ═══════════════════════════════════════════
@@ -1347,6 +1524,23 @@
     border: 0;
   }
 
+  /* Skip link — hidden until focused, lets keyboard/SR users bypass the nav */
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 10001;
+    background: var(--accent);
+    color: #0a0a0b;
+    padding: 10px 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 12px; }
+
   /* Hide the OS cursor only on true pointer devices, and only once JS has
      taken over drawing the custom cursor — if JS never runs, the native
      cursor stays, so the page is never left with no cursor at all. */
@@ -1368,7 +1562,6 @@
     .skill-cell:hover::before { height: 0; }
     .skill-cell:hover { background: var(--bg-elevated); }
     .project-card:hover { transform: none; border-color: var(--border); }
-    .project-card:hover::after { opacity: 0; }
     .exp-item:hover::before { background: var(--bg); transform: none; }
     .contact-link:hover::before { transform: translateX(-101%); }
     .contact-link:hover .link-label { color: var(--fg); }
@@ -1408,18 +1601,18 @@
     .cursor-dot, .cursor-ring, .noise, #matrixCanvas, .easter-toast,
     .secret-message, .scroll-progress, .floating-shape, .hero-grid-bg,
     .hero-line-accent, .hero-scroll-indicator, .marquee-strip,
-    .parallax-text-strip, .project-card::after { display: none !important; }
+    .parallax-text-strip { display: none !important; }
     nav { position: static; mix-blend-mode: normal; padding: 0 0 16px; }
     .hero { height: auto; padding: 24px 0; }
     .section, .skills-section, .experience-section,
-    .projects-section, .education-section, .contact-section { padding: 24px 0; }
+    .projects-section, .publications-section, .education-section, .contact-section { padding: 24px 0; }
     /* Force every animated element visible for print */
     [data-reveal], .hero-title .line-inner, .hero-subtitle,
     .section, .skills-section, .experience-section,
-    .projects-section, .education-section, .contact-section {
+    .projects-section, .publications-section, .education-section, .contact-section {
       opacity: 1 !important; transform: none !important;
     }
-    .skill-cell, .project-card, .edu-card { break-inside: avoid; border: 1px solid #ccc; }
+    .skill-cell, .project-card, .edu-card, .pub-card { break-inside: avoid; border: 1px solid #ccc; }
     a { color: #000; text-decoration: underline; }
     a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9px; color: #555; }
   }
@@ -1447,13 +1640,14 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Navigation -->
+<a class="skip-link" href="#main">Skip to content</a>
 <nav aria-label="Primary">
   <button class="nav-logo" id="navLogo" aria-label="Pranaav Iyer — home">PI_</button>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#skillset">Skillset</a></li>
+    <li><a href="#work">Work Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -1461,7 +1655,8 @@
 <!-- ═══════════════════════════════════════════
      HERO
      ═══════════════════════════════════════════ -->
-<section class="hero">
+<main id="main">
+<section class="hero" id="home">
   <div class="hero-grid-bg" aria-hidden="true"></div>
   <div class="hero-line-accent" aria-hidden="true"></div>
 
@@ -1477,6 +1672,8 @@
     <span>Full Stack Developer</span>
     <div class="divider-dot"></div>
     <span>CS @ NYU</span>
+    <div class="divider-dot"></div>
+    <span style="color: var(--accent);">Incoming @ IBM</span>
   </div>
 
   <div class="hero-scroll-indicator" aria-hidden="true">
@@ -1540,7 +1737,7 @@
       </div>
       <div class="about-detail-row" data-reveal>
         <span class="label">Status</span>
-        <span class="value" style="color: var(--accent);">Open to opportunities</span>
+        <span class="value" style="color: var(--accent);">Incoming RAS Intern @ IBM · open to full-time '27</span>
       </div>
     </div>
   </div>
@@ -1558,7 +1755,7 @@
 <!-- ═══════════════════════════════════════════
      SKILLS
      ═══════════════════════════════════════════ -->
-<section class="skills-section" id="skills">
+<section class="skills-section" id="skillset">
   <div class="skills-container">
     <h2 class="section-label">02 — Expertise</h2>
     <div class="skills-visual" id="skillsGrid">
@@ -1611,13 +1808,31 @@
     <div class="experience-timeline" id="experienceTimeline">
       <div class="exp-item" data-reveal>
         <div class="exp-meta">
+          <div class="exp-year">Incoming · May 2026</div>
+          <div class="exp-company">IBM</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">RAS Intern</div>
+          <div class="exp-desc">
+            Joining IBM as an incoming RAS Intern in May 2026 to build and ship production software alongside their engineering teams.
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">IBM</span>
+            <span class="exp-tag">RAS</span>
+            <span class="exp-tag">Internship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item" data-reveal>
+        <div class="exp-meta">
           <div class="exp-year">May 2022 — Aug 2022</div>
           <div class="exp-company">Avyay Solutions</div>
         </div>
         <div class="exp-content">
           <div class="exp-role">Machine Learning Intern</div>
           <div class="exp-desc">
-            Improved OCR model accuracy by 15% through targeted data profiling, outlier reduction, and redesigned preprocessing pipelines. Built automated benchmarking tools that expanded performance test coverage by 40%.
+            Improved OCR model accuracy by ~15% through targeted data profiling, outlier reduction, and redesigned preprocessing pipelines. Partnered with Google engineers on Image AI (OCR) solutions that cut customer issue-resolution time by 20%, and authored an onboarding whitepaper that sped up how new hires ramped on the OCR stack.
           </div>
           <div class="exp-tags">
             <span class="exp-tag">OCR</span>
@@ -1637,7 +1852,7 @@
         <div class="exp-content">
           <div class="exp-role">Documentation Intern</div>
           <div class="exp-desc">
-            Produced and streamlined 20+ pages of AI/ML technical documentation, improving onboarding speed by 25%. Interviewed senior engineers to capture workflows and convert them into standardized technical references adopted by engineering and QA teams.
+            Produced and streamlined 20+ pages of AI/ML technical documentation, improving onboarding speed and documentation accuracy by 25%. Interviewed senior engineers to capture workflows into standardized references adopted by engineering and QA, and contributed to a harmonized classification plan projected to strengthen compliance efforts by 20%.
           </div>
           <div class="exp-tags">
             <span class="exp-tag">Technical Writing</span>
@@ -1663,19 +1878,23 @@
 <!-- ═══════════════════════════════════════════
      PROJECTS
      ═══════════════════════════════════════════ -->
-<section class="projects-section" id="projects">
+<section class="projects-section" id="portfolio">
   <div class="projects-container">
     <h2 class="section-label">04 — Projects</h2>
     <div class="projects-grid" id="projectsGrid">
       <div class="project-card" data-reveal>
         <div class="card-number">001</div>
         <div class="card-title">ASL Video Translator</div>
-        <div class="card-desc">Real-time ASL-to-English system using OpenCV, MediaPipe, TensorFlow, and ChatGPT achieving sub-150ms inference latency. Authored two research papers submitted to IEEE and JMAI.</div>
+        <div class="card-desc">Real-time ASL-to-English system built on OpenCV, MediaPipe landmark tracking, a CNN+LSTM model, and an LLM for sentence-level context — 92% average gesture-classification accuracy. First-author paper published at IEEE ICDICI 2025; a second manuscript submitted to JMAI.</div>
         <div class="card-tech">
           <span>OpenCV</span>
           <span>MediaPipe</span>
           <span>TensorFlow</span>
-          <span>ChatGPT</span>
+          <span>LLM</span>
+        </div>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/Pranaav003/ASLWebSite" target="_blank" rel="noopener noreferrer" aria-label="ASL Video Translator on GitHub (opens in a new tab)">GitHub <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="card-link" href="https://doi.org/10.1109/ICDICI66477.2025.11135376" target="_blank" rel="noopener noreferrer" aria-label="Published IEEE paper (opens in a new tab)">Paper <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -1689,6 +1908,9 @@
           <span>AI</span>
           <span>Indicators</span>
         </div>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/Pranaav003/Thinkorswim-Trading-Bot" target="_blank" rel="noopener noreferrer" aria-label="Thinkorswim Trading Bot on GitHub (opens in a new tab)">GitHub <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
       </div>
 
       <div class="project-card" data-reveal>
@@ -1700,6 +1922,9 @@
           <span>Computer Vision</span>
           <span>Real-time</span>
           <span>NLP</span>
+        </div>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/Pranaav003/HearSay" target="_blank" rel="noopener noreferrer" aria-label="HearSay on GitHub (opens in a new tab)">GitHub <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -1713,6 +1938,9 @@
           <span>NLP</span>
           <span>Automation</span>
         </div>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/Pranaav003/Debrief" target="_blank" rel="noopener noreferrer" aria-label="Debrief on GitHub (opens in a new tab)">GitHub <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
       </div>
 
       <div class="project-card" data-reveal>
@@ -1723,6 +1951,9 @@
           <span>Python</span>
           <span>Monitoring</span>
           <span>Data Pipeline</span>
+        </div>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/Pranaav003/Signal" target="_blank" rel="noopener noreferrer" aria-label="Signal on GitHub (opens in a new tab)">GitHub <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -1735,7 +1966,32 @@
           <span>Behavioral ML</span>
           <span>React</span>
         </div>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/Pranaav003/Centra" target="_blank" rel="noopener noreferrer" aria-label="Centra on GitHub (opens in a new tab)">GitHub <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PUBLICATIONS
+     ═══════════════════════════════════════════ -->
+<section class="publications-section" id="publications">
+  <div class="publications-container">
+    <h2 class="section-label">05 — Publications</h2>
+    <div class="pub-list" id="pubList">
+      <article class="pub-card" data-reveal>
+        <div class="pub-badge">IEEE · PUBLISHED 2025</div>
+        <h3 class="pub-title">AI-Based Sign Language to Text Translator Using Computer Vision and Deep Learning</h3>
+        <div class="pub-authors"><span class="pub-me">Pranaav Iyer</span>, M. Nguyen, N. Everett, O. Primitivo, G. Collins, M. Hajiarbabi <span class="pub-first">· First author</span></div>
+        <div class="pub-venue">2025 6th Intl. Conference on Data Intelligence &amp; Cognitive Informatics (ICDICI) · Tirunelveli, India</div>
+        <p class="pub-abstract">A real-time ASL-to-text system combining a CNN+LSTM architecture, MediaPipe landmark extraction, and a large language model for sentence-level reasoning — 92% average gesture-classification accuracy, robust across varied lighting, hand sizes, and gesture speeds.</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/10.1109/ICDICI66477.2025.11135376" target="_blank" rel="noopener noreferrer" aria-label="Read the paper on IEEE Xplore (opens in a new tab)">Read on IEEE Xplore <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="pub-doi">DOI: 10.1109/ICDICI66477.2025.11135376</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1745,7 +2001,7 @@
      ═══════════════════════════════════════════ -->
 <section class="education-section" id="education">
   <div class="education-container">
-    <h2 class="section-label">05 — Education</h2>
+    <h2 class="section-label">06 — Education</h2>
     <div class="edu-cards" id="eduCards">
       <div class="edu-card" data-reveal>
         <div class="edu-year-badge">Expected May 2027</div>
@@ -1757,7 +2013,7 @@
       <div class="edu-card" data-reveal>
         <div class="edu-year-badge">Jul 2021 — May 2025</div>
         <div class="edu-school">Purdue University Fort Wayne</div>
-        <div class="edu-degree">B.S. Computer Science — GPA 3.7/4.0</div>
+        <div class="edu-degree">B.S. Computer Science — GPA 3.5/4.0</div>
         <div class="edu-focus">Minor: Math & Business · Data Structures · Software Engineering · Computer Architecture · Security · Networks</div>
         <div class="edu-decoration"></div>
       </div>
@@ -1770,11 +2026,15 @@
      ═══════════════════════════════════════════ -->
 <section class="contact-section" id="contact">
   <div class="contact-container">
-    <h2 class="section-label">06 — Connect</h2>
+    <h2 class="section-label">07 — Connect</h2>
     <div class="contact-links" id="contactLinks">
       <a href="mailto:pranaav.iyer@gmail.com" class="contact-link" data-reveal aria-label="Email Pranaav at pranaav.iyer@gmail.com">
         <span class="link-label">Email</span>
         <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="Pranaav_Iyer_CV.pdf" class="contact-link" data-reveal download aria-label="Download résumé as a PDF">
+        <span class="link-label">Résumé (PDF)</span>
+        <span class="link-arrow" aria-hidden="true">↓</span>
       </a>
       <a href="https://www.linkedin.com/in/pranaav-iyer/" class="contact-link" data-reveal target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
         <span class="link-label">LinkedIn</span>
@@ -1784,7 +2044,7 @@
         <span class="link-label">GitHub</span>
         <span class="link-arrow" aria-hidden="true">→</span>
       </a>
-      <a href="https://pranaaviyer.onrender.com" class="contact-link" data-reveal target="_blank" rel="noopener noreferrer" aria-label="Personal website (opens in a new tab)">
+      <a href="https://pranaaviyer.com/" class="contact-link" data-reveal target="_blank" rel="noopener noreferrer" aria-label="Personal website (opens in a new tab)">
         <span class="link-label">Website</span>
         <span class="link-arrow" aria-hidden="true">→</span>
       </a>
@@ -1795,6 +2055,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer>
@@ -1830,18 +2092,35 @@
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      hasMouseMoved = true;
+      if (!hasMouseMoved) {
+        // First movement: fade the custom cursor in (starts hidden to avoid a
+        // top-left flash on load).
+        hasMouseMoved = true;
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+      }
     });
 
     // Position via transform (compositor-only) instead of left/top (layout).
     function animateCursor() {
+      // Keep the rAF loop alive, but skip style writes when backgrounded or
+      // before the first movement — no wasted compositor work while idle.
+      if (document.hidden || !hasMouseMoved) {
+        requestAnimationFrame(animateCursor);
+        return;
+      }
+      const pdx = dotX, pdy = dotY, prx = ringX, pry = ringY;
       dotX += (mouseX - dotX) * 0.2;
       dotY += (mouseY - dotY) * 0.2;
       ringX += (mouseX - ringX) * 0.1;
       ringY += (mouseY - ringY) * 0.1;
 
-      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
-      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+      if (Math.abs(dotX - pdx) > 0.05 || Math.abs(dotY - pdy) > 0.05) {
+        dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+      }
+      if (Math.abs(ringX - prx) > 0.05 || Math.abs(ringY - pry) > 0.05) {
+        ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+      }
 
       requestAnimationFrame(animateCursor);
     }
@@ -1863,9 +2142,16 @@
   // ─── Scroll Progress Bar ──────────────────────
   const scrollProgress = document.getElementById('scrollProgress');
 
+  // Cache the scrollable height so the hot scroll path never reads scrollHeight
+  // (which can force a synchronous layout). Refresh only on resize.
+  let cachedDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+  window.addEventListener('resize', () => {
+    cachedDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+  }, { passive: true });
+
   function updateScrollProgress() {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight = cachedDocHeight;
     const progress = docHeight > 0 ? scrollTop / docHeight : 0;
     scrollProgress.style.transform = `scaleX(${progress})`;
   }
@@ -1964,6 +2250,7 @@
         label.style.transform = 'translate(0, 0)';
         arrow.style.transform = 'translate(0, 0)';
         arrow.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        label.style.transition = '';
       });
     });
 
@@ -2020,7 +2307,7 @@
         const targetPos = target.getBoundingClientRect().top + window.scrollY - 80;
         window.scrollTo({
           top: targetPos,
-          behavior: 'smooth'
+          behavior: prefersReduced ? 'instant' : 'smooth'
         });
       }
     });
@@ -2268,6 +2555,7 @@
   });
 
   setInterval(() => {
+    if (document.hidden) return;
     if (hasMouseMoved && Date.now() - lastMouseMove > 8000 && idleDots.length < 3) {
       const idleDot = document.createElement('div');
       idleDot.style.cssText = `
