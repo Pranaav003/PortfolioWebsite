@@ -73,7 +73,7 @@
 <noscript><style>
   [data-reveal], .hero-title .line-inner, .hero-subtitle,
   .section, .skills-section, .experience-section,
-  .projects-section, .publications-section, .education-section, .contact-section {
+  .projects-section, .education-section, .contact-section {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -1019,139 +1019,6 @@
   }
 
   /* ═══════════════════════════════════════════
-     PUBLICATIONS
-     ═══════════════════════════════════════════ */
-  .publications-section {
-    padding: 160px 48px;
-    position: relative;
-  }
-
-  .publications-container {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .pub-list {
-    margin-top: 80px;
-  }
-
-  .pub-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-left: 2px solid var(--border-accent);
-    padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 44px);
-    position: relative;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s var(--ease-out-expo), border-color 0.3s;
-  }
-
-  .pub-card.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .pub-card:hover {
-    border-color: var(--border-accent);
-  }
-
-  .pub-badge {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    padding: 6px 14px;
-    border: 1px solid var(--border-accent);
-    display: inline-block;
-    margin-bottom: 24px;
-  }
-
-  .pub-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.3rem, 2.4vw, 2rem);
-    font-weight: 700;
-    color: var(--fg);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-
-  .pub-authors {
-    font-size: 14px;
-    color: var(--fg-muted);
-    line-height: 1.6;
-    margin-bottom: 6px;
-  }
-
-  .pub-authors .pub-me {
-    color: var(--fg);
-    font-weight: 600;
-  }
-
-  .pub-authors .pub-first {
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-  }
-
-  .pub-venue {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--fg-dim);
-    letter-spacing: 0.04em;
-    margin-bottom: 20px;
-  }
-
-  .pub-abstract {
-    font-size: 14px;
-    color: var(--fg-muted);
-    line-height: 1.7;
-    margin-bottom: 28px;
-  }
-
-  .pub-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .pub-link {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    color: var(--fg);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid var(--border-accent);
-    padding-bottom: 3px;
-    transition: color 0.3s, border-color 0.3s;
-  }
-
-  .pub-link:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  .pub-link .arr {
-    transition: transform 0.3s var(--ease-out-expo);
-  }
-
-  .pub-link:hover .arr {
-    transform: translate(2px, -2px);
-  }
-
-  .pub-doi {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--fg-dim);
-    letter-spacing: 0.04em;
-  }
-
-  /* ═══════════════════════════════════════════
      EDUCATION — HORIZONTAL SCROLL BREAK
      ═══════════════════════════════════════════ */
   .education-section {
@@ -1234,6 +1101,59 @@
     border: 1px solid var(--border);
     border-radius: 50%;
     opacity: 0.3;
+  }
+
+  /* Education detail overlay — relevant coursework on hover/focus/tap */
+  .edu-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 44px 36px;
+    background-color: rgba(12, 12, 14, 0.8);
+    background-image:
+      linear-gradient(rgba(200, 255, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 255, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid var(--border-accent);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.98);
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s var(--ease-out-expo), visibility 0s linear 0.15s;
+    overflow: auto;
+  }
+
+  .edu-card:hover .edu-overlay,
+  .edu-card:focus-within .edu-overlay,
+  .edu-card.open .edu-overlay {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .edu-ov-head {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.85;
+  }
+
+  .edu-ov-list {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+    color: var(--fg-muted);
   }
 
   /* ═══════════════════════════════════════════
@@ -1522,7 +1442,7 @@
     .nav-links { gap: 16px; }
     .nav-links a { font-size: 10px; }
     .section, .skills-section, .experience-section,
-    .projects-section, .publications-section, .education-section, .contact-section {
+    .projects-section, .education-section, .contact-section {
       padding: 100px 24px;
     }
     .hero { padding: 0 24px; }
@@ -1651,15 +1571,15 @@
     nav { position: static; mix-blend-mode: normal; padding: 0 0 16px; }
     .hero { height: auto; padding: 24px 0; }
     .section, .skills-section, .experience-section,
-    .projects-section, .publications-section, .education-section, .contact-section { padding: 24px 0; }
+    .projects-section, .education-section, .contact-section { padding: 24px 0; }
     /* Force every animated element visible for print */
     [data-reveal], .hero-title .line-inner, .hero-subtitle,
     .section, .skills-section, .experience-section,
-    .projects-section, .publications-section, .education-section, .contact-section {
+    .projects-section, .education-section, .contact-section {
       opacity: 1 !important; transform: none !important;
     }
-    .skill-cell, .project-card, .edu-card, .pub-card { break-inside: avoid; border: 1px solid #ccc; }
-    .skill-overlay {
+    .skill-cell, .project-card, .edu-card { break-inside: avoid; border: 1px solid #ccc; }
+    .skill-overlay, .edu-overlay {
       position: static;
       opacity: 1;
       transform: none;
@@ -2085,47 +2005,33 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     PUBLICATIONS
-     ═══════════════════════════════════════════ -->
-<section class="publications-section" id="publications">
-  <div class="publications-container">
-    <h2 class="section-label">05 — Publications</h2>
-    <div class="pub-list" id="pubList">
-      <article class="pub-card" data-reveal>
-        <div class="pub-badge">IEEE · PUBLISHED 2025</div>
-        <h3 class="pub-title">AI-Based Sign Language to Text Translator Using Computer Vision and Deep Learning</h3>
-        <div class="pub-authors"><span class="pub-me">Pranaav Iyer</span>, M. Nguyen, N. Everett, O. Primitivo, G. Collins, M. Hajiarbabi <span class="pub-first">· First author</span></div>
-        <div class="pub-venue">2025 6th Intl. Conference on Data Intelligence &amp; Cognitive Informatics (ICDICI) · Tirunelveli, India</div>
-        <p class="pub-abstract">A real-time ASL-to-text system combining a CNN+LSTM architecture, MediaPipe landmark extraction, and a large language model for sentence-level reasoning — 92% average gesture-classification accuracy, robust across varied lighting, hand sizes, and gesture speeds.</p>
-        <div class="pub-links">
-          <a class="pub-link" href="https://doi.org/10.1109/ICDICI66477.2025.11135376" target="_blank" rel="noopener noreferrer" aria-label="Read the paper on IEEE Xplore (opens in a new tab)">Read on IEEE Xplore <span class="arr" aria-hidden="true">↗</span></a>
-          <span class="pub-doi">DOI: 10.1109/ICDICI66477.2025.11135376</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
      EDUCATION
      ═══════════════════════════════════════════ -->
 <section class="education-section" id="education">
   <div class="education-container">
-    <h2 class="section-label">06 — Education</h2>
+    <h2 class="section-label">05 — Education</h2>
     <div class="edu-cards" id="eduCards">
-      <div class="edu-card" data-reveal>
+      <div class="edu-card" data-reveal tabindex="0">
         <div class="edu-year-badge">Expected May 2027</div>
         <div class="edu-school">New York University</div>
         <div class="edu-degree">M.S. Computer Science — GPA 4.0/4.0</div>
-        <div class="edu-focus">Courant Institute · Algorithms · AI · ML · Programming Languages · Operating Systems</div>
+        <div class="edu-focus">Courant Institute of Mathematical Sciences</div>
         <div class="edu-decoration"></div>
+        <div class="edu-overlay">
+          <span class="edu-ov-head">Relevant Coursework</span>
+          <div class="edu-ov-list">Fundamental Algorithms · Artificial Intelligence · Machine Learning · Programming Languages · Operating Systems</div>
+        </div>
       </div>
-      <div class="edu-card" data-reveal>
+      <div class="edu-card" data-reveal tabindex="0">
         <div class="edu-year-badge">Jul 2021 — May 2025</div>
         <div class="edu-school">Purdue University Fort Wayne</div>
         <div class="edu-degree">B.S. Computer Science — GPA 3.5/4.0</div>
-        <div class="edu-focus">Minor: Math & Business · Data Structures · Software Engineering · Computer Architecture · Security · Networks</div>
+        <div class="edu-focus">Minor: Mathematics & Business</div>
         <div class="edu-decoration"></div>
+        <div class="edu-overlay">
+          <span class="edu-ov-head">Relevant Coursework</span>
+          <div class="edu-ov-list">Data Structures · Software Engineering · Computer Architecture · Computer Security · Computer Networks · Discrete Math · Calculus I–II · Intro to CS I–II</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2136,7 +2042,7 @@
      ═══════════════════════════════════════════ -->
 <section class="contact-section" id="contact">
   <div class="contact-container">
-    <h2 class="section-label">07 — Connect</h2>
+    <h2 class="section-label">06 — Connect</h2>
     <div class="contact-links" id="contactLinks">
       <a href="mailto:pranaav.iyer@gmail.com" class="contact-link" data-reveal aria-label="Email Pranaav at pranaav.iyer@gmail.com">
         <span class="link-label">Email</span>
@@ -2436,8 +2342,8 @@
     }
   }, { passive: true });
 
-  // ─── Expertise Overlay: tap-toggle on touch, Esc to close ─────
-  const skillCells = document.querySelectorAll('.skill-cell');
+  // ─── Skill / Education Overlays: tap-toggle on touch, Esc to close ─────
+  const skillCells = document.querySelectorAll('.skill-cell, .edu-card');
   const coarsePointer = window.matchMedia('(hover: none)').matches;
   if (coarsePointer) {
     skillCells.forEach(cell => {
