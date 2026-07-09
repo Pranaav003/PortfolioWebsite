@@ -77,7 +77,6 @@
     opacity: 1 !important;
     transform: none !important;
   }
-  .skill-cell .skill-bar-fill { width: var(--skill-level) !important; }
 </style></noscript>
 <style>
   /* ═══════════════════════════════════════════
@@ -626,8 +625,7 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    /* flex column so the progress bar can pin to the bottom and align
-       across every cell regardless of description length */
+    /* flex column so the overlay/content centres vertically in the cell */
     display: flex;
     flex-direction: column;
     opacity: 0;
@@ -685,24 +683,82 @@
     line-height: 1.7;
   }
 
-  .skill-bar-track {
-    width: 100%;
-    height: 2px;
-    background: var(--border);
-    margin-top: auto;      /* pin to bottom of the flex cell → bars align */
-    position: relative;
-    overflow: hidden;
+  .skill-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 30px;
+    background-color: rgba(12, 12, 14, 0.8);
+    /* faint lime grid — the "see-through" texture */
+    background-image:
+      linear-gradient(rgba(200, 255, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 255, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid var(--border-accent);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.98);
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s var(--ease-out-expo), visibility 0s linear 0.15s;
+    overflow: auto;
   }
 
-  .skill-bar-fill {
-    height: 100%;
-    background: var(--accent);
-    width: 0%;
-    transition: width 1.2s var(--ease-out-expo);
+  .skill-cell:hover .skill-overlay,
+  .skill-cell:focus-within .skill-overlay,
+  .skill-cell.open .skill-overlay {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    visibility: visible;
+    transition-delay: 0s;
   }
 
-  .skill-cell.revealed .skill-bar-fill {
-    width: var(--skill-level);
+  .skill-ov-head {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.85;
+  }
+
+  .skill-ov-projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .skill-proj {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    text-decoration: none;
+    padding: 4px 9px;
+    border: 1px solid var(--border-accent);
+    border-radius: 4px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .skill-proj:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .skill-ov-skills {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+    color: var(--fg-muted);
   }
 
   /* ═══════════════════════════════════════════
@@ -1447,15 +1503,6 @@
     100% { transform: translate(0); filter: none; }
   }
 
-  /* Clickable skill cell easter egg — spin */
-  .skill-cell.spin {
-    animation: cellSpin 0.6s var(--ease-out-expo);
-  }
-  @keyframes cellSpin {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-  }
-
   /* Secret hover on footer — reveal hidden text */
   footer .secret-footer {
     color: var(--accent);
@@ -1589,7 +1636,6 @@
       opacity: 1 !important;
       transform: none !important;
     }
-    .skill-cell .skill-bar-fill { width: var(--skill-level) !important; }
   }
 
   /* ═══════════════════════════════════════════
@@ -1613,6 +1659,17 @@
       opacity: 1 !important; transform: none !important;
     }
     .skill-cell, .project-card, .edu-card, .pub-card { break-inside: avoid; border: 1px solid #ccc; }
+    .skill-overlay {
+      position: static;
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+      background: none;
+      border: 0;
+      backdrop-filter: none;
+      padding: 8px 0 0;
+      pointer-events: auto;
+    }
     a { color: #000; text-decoration: underline; }
     a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9px; color: #555; }
   }
@@ -1759,41 +1816,94 @@
   <div class="skills-container">
     <h2 class="section-label">02 — Expertise</h2>
     <div class="skills-visual" id="skillsGrid">
-      <div class="skill-cell" data-reveal style="--skill-level: 92%">
+      <div class="skill-cell" data-reveal tabindex="0">
         <div class="skill-number">01</div>
         <div class="skill-name">Programming</div>
         <div class="skill-detail">Python · React.js · SQL · C/C++ · Java · JS · CSS · HTML</div>
-        <div class="skill-bar-track" aria-hidden="true"><div class="skill-bar-fill"></div></div>
+        <div class="skill-overlay">
+          <span class="skill-ov-head">Projects</span>
+          <div class="skill-ov-projects">
+            <a class="skill-proj" href="https://github.com/Pranaav003/Debrief" target="_blank" rel="noopener noreferrer">Debrief</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Centra" target="_blank" rel="noopener noreferrer">Centra</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Signal" target="_blank" rel="noopener noreferrer">Signal</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/HearSay" target="_blank" rel="noopener noreferrer">HearSay</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Thinkorswim-Trading-Bot" target="_blank" rel="noopener noreferrer">Trading Bot</a>
+          </div>
+          <span class="skill-ov-head">Skills</span>
+          <div class="skill-ov-skills">Python · TypeScript · React · SQL · C/C++ · Java · JavaScript · HTML/CSS · Flask · Node</div>
+        </div>
       </div>
-      <div class="skill-cell" data-reveal style="--skill-level: 88%">
+      <div class="skill-cell" data-reveal tabindex="0">
         <div class="skill-number">02</div>
         <div class="skill-name">AI / Machine Learning</div>
         <div class="skill-detail">TensorFlow · PyTorch · NLP · OCR · Automation</div>
-        <div class="skill-bar-track" aria-hidden="true"><div class="skill-bar-fill"></div></div>
+        <div class="skill-overlay">
+          <span class="skill-ov-head">Projects</span>
+          <div class="skill-ov-projects">
+            <a class="skill-proj" href="https://github.com/Pranaav003/ASLWebSite" target="_blank" rel="noopener noreferrer">ASL Translator</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Thinkorswim-Trading-Bot" target="_blank" rel="noopener noreferrer">Trading Bot</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Debrief" target="_blank" rel="noopener noreferrer">Debrief</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Signal" target="_blank" rel="noopener noreferrer">Signal</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Centra" target="_blank" rel="noopener noreferrer">Centra</a>
+          </div>
+          <span class="skill-ov-head">Skills</span>
+          <div class="skill-ov-skills">TensorFlow · PyTorch · CNN+LSTM · NLP · LLMs · OCR · scikit-learn · KNN</div>
+        </div>
       </div>
-      <div class="skill-cell" data-reveal style="--skill-level: 85%">
+      <div class="skill-cell" data-reveal tabindex="0">
         <div class="skill-number">03</div>
         <div class="skill-name">Development Tools</div>
         <div class="skill-detail">Docker · Flask · Jupyter Notebook · OpenCV</div>
-        <div class="skill-bar-track" aria-hidden="true"><div class="skill-bar-fill"></div></div>
+        <div class="skill-overlay">
+          <span class="skill-ov-head">Projects</span>
+          <div class="skill-ov-projects">
+            <a class="skill-proj" href="https://github.com/Pranaav003/ASLWebSite" target="_blank" rel="noopener noreferrer">ASL Translator</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/Thinkorswim-Trading-Bot" target="_blank" rel="noopener noreferrer">Trading Bot</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/HearSay" target="_blank" rel="noopener noreferrer">HearSay</a>
+          </div>
+          <span class="skill-ov-head">Skills</span>
+          <div class="skill-ov-skills">Docker · Flask · Jupyter · Git · OpenCV · REST APIs · Vite</div>
+        </div>
       </div>
-      <div class="skill-cell" data-reveal style="--skill-level: 90%">
+      <div class="skill-cell" data-reveal tabindex="0">
         <div class="skill-number">04</div>
         <div class="skill-name">Computer Vision</div>
         <div class="skill-detail">OpenCV · MediaPipe · Pose Estimation · Real-time Inference</div>
-        <div class="skill-bar-track" aria-hidden="true"><div class="skill-bar-fill"></div></div>
+        <div class="skill-overlay">
+          <span class="skill-ov-head">Projects</span>
+          <div class="skill-ov-projects">
+            <a class="skill-proj" href="https://github.com/Pranaav003/ASLWebSite" target="_blank" rel="noopener noreferrer">ASL Translator</a>
+            <a class="skill-proj" href="https://github.com/Pranaav003/HearSay" target="_blank" rel="noopener noreferrer">HearSay</a>
+          </div>
+          <span class="skill-ov-head">Skills</span>
+          <div class="skill-ov-skills">OpenCV · MediaPipe Holistic · landmark extraction · pose estimation · real-time inference</div>
+        </div>
       </div>
-      <div class="skill-cell" data-reveal style="--skill-level: 82%">
+      <div class="skill-cell" data-reveal tabindex="0">
         <div class="skill-number">05</div>
         <div class="skill-name">Research & Writing</div>
         <div class="skill-detail">IEEE Publications · Technical Documentation · EDA</div>
-        <div class="skill-bar-track" aria-hidden="true"><div class="skill-bar-fill"></div></div>
+        <div class="skill-overlay">
+          <span class="skill-ov-head">Projects</span>
+          <div class="skill-ov-projects">
+            <a class="skill-proj" href="https://github.com/Pranaav003/ASLWebSite" target="_blank" rel="noopener noreferrer">ASL Translator</a>
+          </div>
+          <span class="skill-ov-head">Skills</span>
+          <div class="skill-ov-skills">IEEE first-author paper · technical documentation · EDA · whitepapers · academic writing</div>
+        </div>
       </div>
-      <div class="skill-cell" data-reveal style="--skill-level: 78%">
+      <div class="skill-cell" data-reveal tabindex="0">
         <div class="skill-number">06</div>
         <div class="skill-name">Leadership</div>
         <div class="skill-detail">Team Direction · Mentorship · Project Management</div>
-        <div class="skill-bar-track" aria-hidden="true"><div class="skill-bar-fill"></div></div>
+        <div class="skill-overlay">
+          <span class="skill-ov-head">Projects</span>
+          <div class="skill-ov-projects">
+            <a class="skill-proj" href="https://github.com/Pranaav003/ASLWebSite" target="_blank" rel="noopener noreferrer">ASL Translator</a>
+          </div>
+          <span class="skill-ov-head">Skills</span>
+          <div class="skill-ov-skills">team direction · mentorship · project management · cross-functional collaboration</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2326,6 +2436,26 @@
     }
   }, { passive: true });
 
+  // ─── Expertise Overlay: tap-toggle on touch, Esc to close ─────
+  const skillCells = document.querySelectorAll('.skill-cell');
+  const coarsePointer = window.matchMedia('(hover: none)').matches;
+  if (coarsePointer) {
+    skillCells.forEach(cell => {
+      cell.addEventListener('click', (e) => {
+        // don't hijack taps on the project links themselves
+        if (e.target.closest('.skill-proj')) return;
+        cell.classList.toggle('open');
+      });
+    });
+    // Tap outside any open cell to close it
+    document.addEventListener('click', (e) => {
+      skillCells.forEach(c => { if (!c.contains(e.target)) c.classList.remove('open'); });
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') skillCells.forEach(c => c.classList.remove('open'));
+  });
+
   // ─── Typewriter Effect on Nav Logo ───────────
   const navLogo = document.getElementById('navLogo');
   let logoIndex = 0;
@@ -2525,22 +2655,13 @@
     if (matrixActive) initMatrix();
   });
 
-  // ─── EASTER EGG 5: Skill Cell Double-Click Spin ─
-  document.querySelectorAll('.skill-cell').forEach(cell => {
-    cell.addEventListener('dblclick', () => {
-      cell.classList.add('spin');
-      showToast('🔄 Skill unlocked!', 1500);
-      setTimeout(() => cell.classList.remove('spin'), 600);
-    });
-  });
-
   // ─── EASTER EGG 6: Console Messages ──────────
   console.log('%c╔══════════════════════════════════════════╗', 'color: #c8ff00');
   console.log('%c║  Hey, you found the console!              ║', 'color: #c8ff00; font-size: 14px; font-weight: bold;');
   console.log('%c║  The real code is the friends we          ║', 'color: #c8ff00');
   console.log('%c║  compiled along the way. 🤖              ║', 'color: #c8ff00');
   console.log('%c╚══════════════════════════════════════════╝', 'color: #c8ff00');
-  console.log('%cEaster eggs: Konami code | Click logo 7x | Click title | Press M | Double-click skills', 'color: #7a7876; font-size: 11px;');
+  console.log('%cEaster eggs: Konami code | Click logo 7x | Click title | Press M', 'color: #7a7876; font-size: 11px;');
 
   // ─── EASTER EGG 7: Idle cursor trail (fine-pointer only) ─────────
   let lastMouseMove = Date.now();
