@@ -19,7 +19,7 @@
       blurb:
         "M.S. Computer Science at NYU. I build intelligent systems that bridge raw data and real-world impact — real-time ASL translation, trading engines, and AI agents.",
       coords: { lat: "37.5°N", lon: "122.0°W", place: "Fremont, CA" },
-      status: "Incoming RAS Intern @ IBM · open to full-time '27",
+      status: "RAS Intern @ IBM · open to full-time '27",
       site: "https://pranaaviyer.com/",
     },
 
@@ -38,7 +38,7 @@
         { label: "Location", value: "Fremont, CA" },
         { label: "Education", value: "M.S. Computer Science, NYU · 4.0 GPA" },
         { label: "Languages", value: "Python · React.js · SQL · C/C++ · Java" },
-        { label: "Status", value: "Incoming RAS Intern @ IBM · open to full-time '27", highlight: true },
+        { label: "Status", value: "RAS Intern @ IBM · open to full-time '27", highlight: true },
       ],
     },
 
@@ -64,11 +64,11 @@
     // Three roles, matching the live site (newest first).
     experience: [
       {
-        year: "Incoming · May 2026",
+        year: "May 2026 — Present",
         company: "IBM",
         role: "RAS Intern",
         desc:
-          "Joining IBM as an incoming RAS Intern in May 2026 to build and ship production software alongside their engineering teams.",
+          "Building and shipping production software at IBM as a RAS Intern, working alongside their engineering teams.",
         tags: ["IBM", "RAS", "Internship"],
       },
       {
@@ -192,14 +192,14 @@
     // Six links, matching the live Connect section (order: Email, Résumé, LinkedIn, GitHub, Website, Phone).
     contact: [
       { label: "Email", href: "mailto:pranaav.iyer@gmail.com", value: "pranaav.iyer@gmail.com", cmd: "email" },
-      { label: "Résumé", href: "/public/Pranaav_Iyer_CV.pdf", value: "PDF", cmd: "cv" },
+      { label: "Résumé", href: "/Pranaav_Iyer_CV.pdf", value: "PDF", cmd: "cv" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/pranaav-iyer/", value: "in/pranaav-iyer", external: true, cmd: "linkedin" },
       { label: "GitHub", href: "https://github.com/Pranaav003", value: "@Pranaav003", external: true, cmd: "github" },
       { label: "Website", href: "https://pranaaviyer.com/", value: "pranaaviyer.com", external: true, cmd: "website" },
       { label: "Phone", href: "tel:+14088632110", value: "+1 408 863 2110", cmd: "phone" },
     ],
 
-    resume: "/public/Pranaav_Iyer_CV.pdf",
+    resume: "/Pranaav_Iyer_CV.pdf",
 
     sections: [
       { id: "about", label: "About", n: "01" },
