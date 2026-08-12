@@ -104,12 +104,12 @@ Education 05, Contact 06.
   Detail rows: Location Fremont CA · Education M.S. CS NYU · 4.0 GPA · Languages Python·React·SQL·C/C++·Java · Status Open to opportunities.
 - **Skills (6):** Programming 92 · AI/ML 88 · Development Tools 85 · Computer Vision 90 ·
   Research & Writing 82 · Leadership 78 (details in content.js).
-- **Experience (2):** Avyay Solutions — ML Intern (May 2022–Aug 2022); Krypt, Inc. —
+- **Experience (3):** IBM — RAS Intern (May 2026–Present); Avyay Solutions — ML Intern (May 2022–Aug 2022); Krypt, Inc. —
   Documentation Intern (May 2019–Aug 2020).
 - **Projects (6):** 001 ASL Video Translator · 002 Thinkorswim Trading Bot · 003 HearSay ·
   004 Debrief · 005 Signal · 006 Centra (titles/desc/tech verbatim from content.js).
 - **Education (2):** NYU (M.S. CS, GPA 4.0, Expected May 2027); Purdue Fort Wayne (B.S. CS,
-  GPA 3.7, Jul 2021–May 2025).
+  GPA 3.5, Jul 2021–May 2025).
 - **Contact (5):** Email pranaav.iyer@gmail.com · LinkedIn in/pranaav-iyer · GitHub @Pranaav003 ·
   Website pranaaviyer.onrender.com · Phone +1 408 863 2110. Résumé: `/public/PranaavIyer_Resume.pdf`.
 
