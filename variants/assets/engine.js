@@ -42,6 +42,16 @@
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
+  /** Escape HTML special characters to prevent XSS in innerHTML contexts. Pure + testable. */
+  function escapeHTML(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
   // ══════════════════════════════════════════════════════════════════════
   //  PURE LOGIC — unit-tested in engine.test.mjs (no DOM required)
   // ══════════════════════════════════════════════════════════════════════
@@ -257,6 +267,8 @@
   let scrollLocks = 0;
   const lockScroll = () => { if (scrollLocks++ === 0) document.body.style.overflow = "hidden"; };
   const unlockScroll = () => { if (scrollLocks > 0 && --scrollLocks === 0) document.body.style.overflow = ""; };
+  /** Reset scroll lock counter — used for testing and emergency recovery. */
+  const resetScrollLocks = () => { scrollLocks = 0; if (hasDOM) document.body.style.overflow = ""; };
 
   // ── Custom cursor ─────────────────────────────────────────────────────────
   function initCursor() {
@@ -266,12 +278,18 @@
     document.body.append(dot, ring); document.body.classList.add("pf-cursor-ready");
     let mx = 0, my = 0, dx = 0, dy = 0, rx = 0, ry = 0;
     on(document, "mousemove", (e) => { mx = e.clientX; my = e.clientY; });
-    (function loop() {
+    let cursorRaf = 0;
+    function cursorLoop() {
       dx += (mx - dx) * 0.25; dy += (my - dy) * 0.25; rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
       dot.style.transform = `translate(${dx}px,${dy}px) translate(-50%,-50%)`;
       ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-      requestAnimationFrame(loop);
-    })();
+      cursorRaf = requestAnimationFrame(cursorLoop);
+    }
+    cursorRaf = requestAnimationFrame(cursorLoop);
+    on(document, "visibilitychange", () => {
+      if (document.hidden) { cancelAnimationFrame(cursorRaf); cursorRaf = 0; }
+      else if (!cursorRaf) { cursorRaf = requestAnimationFrame(cursorLoop); }
+    });
     const hoverSel = "a,button,[data-project],[data-open-palette],input,.pf-list li";
     on(document, "mouseover", (e) => { if (e.target.closest(hoverSel)) { dot.classList.add("pf-hover"); ring.classList.add("pf-hover"); } });
     on(document, "mouseout", (e) => { if (e.target.closest(hoverSel)) { dot.classList.remove("pf-hover"); ring.classList.remove("pf-hover"); } });
@@ -522,7 +540,10 @@
       if (cur) cur.scrollIntoView({ block: "nearest" });
       input.setAttribute("aria-activedescendant", filtered.length ? "pf-opt-" + sel : "");
     }
-    function print(html, ok) { out.innerHTML = `<div class="pf-line${ok ? " pf-ok" : ""}">${html}</div>`; }
+    // print() accepts either pre-sanitized HTML (ok=true cases only, hardcoded strings) or
+    // plain text that must be HTML-escaped before insertion into innerHTML.
+    function printHTML(trustedHtml, ok) { out.innerHTML = `<div class="pf-line${ok ? " pf-ok" : ""}">${trustedHtml}</div>`; }
+    function print(text, ok) { printHTML(escapeHTML(text), ok); }
 
     function exec(c) {
       if (!c) return;
@@ -538,7 +559,8 @@
         case "print": print(c.output); break;
         case "help": print("Available: " + commands.filter((x) => x.kind !== "help").map((x) => x.id).join(", ")); break;
         case "clear": out.innerHTML = ""; break;
-        case "hire": print("✓ offer queued. Reach me at <span class='pf-ok'>pranaav.iyer@gmail.com</span> — I read every message.", true); break;
+        // hire uses a hardcoded trusted HTML string with a <span> — use printHTML directly.
+        case "hire": printHTML("&#x2713; offer queued. Reach me at <span class='pf-ok'>pranaav.iyer@gmail.com</span> — I read every message.", true); break;
         case "theme":
           if (hooks.onTheme) hooks.onTheme();
           else if (root.__pfEggs) { root.__pfEggs.toggleRainbow(); print("toggled rainbow accent (Konami code does this too)", true); }
@@ -709,9 +731,15 @@
       if (!mCanvas) { mCanvas = document.createElement("canvas"); mCanvas.id = "pf-matrix"; mCanvas.setAttribute("aria-hidden", "true"); document.body.appendChild(mCanvas); mCtx = mCanvas.getContext("2d"); if (!mCtx) return; }
       mOn = !mOn; mCanvas.classList.toggle("pf-on", mOn);
       if (mOn) { mDrops = []; mInit(); mInt = setInterval(mDraw, 50); showToast("⟩ matrix — press M to exit"); }
-      else { clearInterval(mInt); mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height); }
+      else { clearInterval(mInt); mInt = null; mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height); }
     }
     on(window, "resize", () => { if (mOn) mInit(); });
+    // Pause the matrix setInterval when the tab is hidden, restart on visibility.
+    on(document, "visibilitychange", () => {
+      if (!mOn) return;
+      if (document.hidden) { clearInterval(mInt); mInt = null; }
+      else if (!mInt) { mInt = setInterval(mDraw, 50); }
+    });
 
     on(document, "keydown", (e) => {
       const tag = document.activeElement && document.activeElement.tagName;
@@ -766,7 +794,9 @@
     initSplitReveal, initCountUp, initNeuralHero, initPalette, initDrawers, splitChars, consoleSignature, initEasterEggs,
     // pure helpers (tested)
     buildCommands, filterCommands, isSubsequence, genNodes, connectNodes, nodeCountFor, formatCount,
-    easeOutExpo, easeOutCubic, clamp,
+    easeOutExpo, easeOutCubic, clamp, escapeHTML,
+    // scroll lock (exported for testing and emergency recovery)
+    lockScroll, unlockScroll, resetScrollLocks,
     // env
     prefersReduced, finePointer, hasGSAP, hasScrollTrigger,
   };
