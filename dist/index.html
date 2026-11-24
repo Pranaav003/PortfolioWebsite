@@ -4,1423 +4,410 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pranaav Iyer — ML Engineer & Builder</title>
-
-<meta name="description" content="Pranaav Iyer — ML Engineer & Full Stack Developer. M.S. Computer Science at NYU. I build intelligent systems that bridge raw data and real-world impact — real-time ASL translation, trading engines, and AI agents.">
+<meta name="description" content="Pranaav Iyer — ML engineer and full-stack developer. M.S. Computer Science at NYU, RAS Intern at IBM. I build intelligent systems that turn raw data into real-world impact: real-time ASL translation, trading engines and AI agents.">
 <meta name="author" content="Pranaav Iyer">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#0b0b0c">
 <link rel="canonical" href="https://pranaaviyer.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pranaav Iyer — ML Engineer & Builder">
-<meta property="og:description" content="ML Engineer & Full Stack Developer. M.S. CS @ NYU. Building intelligent systems — real-time ASL translation, trading engines, and AI agents.">
+<meta property="og:description" content="ML engineer and full-stack developer. M.S. CS @ NYU, RAS Intern @ IBM. Real-time ASL translation, trading engines and AI agents.">
 <meta property="og:url" content="https://pranaaviyer.com/">
 <meta property="og:site_name" content="Pranaav Iyer">
 <meta property="og:image" content="https://pranaaviyer.com/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://pranaaviyer.com/og-card.png">
 <meta name="twitter:title" content="Pranaav Iyer — ML Engineer & Builder">
-<meta name="twitter:description" content="ML Engineer & Full Stack Developer. M.S. CS @ NYU. Building intelligent systems.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0b'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='52' font-weight='700' fill='%23c8ff00' text-anchor='middle'%3EPI%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Pranaav Iyer","url":"https://pranaaviyer.com/","jobTitle":"Machine Learning Engineer","email":"mailto:pranaav.iyer@gmail.com","alumniOf":[{"@type":"CollegeOrUniversity","name":"New York University"},{"@type":"CollegeOrUniversity","name":"Purdue University Fort Wayne"}],"knowsAbout":["Machine Learning","Computer Vision","Full Stack Development","NLP","Python","React"],"sameAs":["https://www.linkedin.com/in/pranaav-iyer/","https://github.com/Pranaav003"]}
-</script>
-
+<meta name="twitter:description" content="ML engineer and full-stack developer. M.S. CS @ NYU, RAS Intern @ IBM.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230b0b0c'/%3E%3Ctext x='50' y='67' font-family='Georgia,serif' font-size='50' fill='%23f2f0ea' text-anchor='middle'%3EPI%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- Flag JS so reveal-hidden states apply only when JS can undo them -->
-<script>document.documentElement.classList.add('js')</script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  // Apply saved theme before paint to avoid a flash.
+  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
 <style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --bg:#0a0a0b; --bg-elevated:#111113; --bg-card:#18181b;
-    --fg:#e8e6e3; --fg-muted:#a3a09c; --fg-dim:#8c8a86;
-    --accent:#c8ff00; --accent-soft:rgba(200,255,0,.08); --accent-glow:rgba(200,255,0,.15);
-    --accent-secondary:#ff6b35; --border:rgba(255,255,255,.06); --border-accent:rgba(200,255,0,.2);
-    --font-display:'Syne',sans-serif; --font-body:'Space Grotesk',sans-serif; --font-mono:'JetBrains Mono',monospace;
-    --ease-out-expo:cubic-bezier(.16,1,.3,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  :root {
+    --bg: #0b0b0c;
+    --surface: #111113;
+    --border: #232326;
+    --border-strong: #34343a;
+    --text: #f2f0ea;
+    --muted: #a3a3a8;
+    --faint: #6e6e74;
+    --accent: #f2f0ea;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    color-scheme: dark;
   }
-  html{scrollbar-width:thin;scrollbar-color:var(--fg-dim) var(--bg)}
-  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-  ::-moz-selection{background:var(--accent);color:var(--bg)}
-  ::selection{background:var(--accent);color:var(--bg)}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-
-  /* ── Reveal pattern (only hides when JS present) ── */
-  html.js [data-reveal]{opacity:0;transform:translateY(30px)}
-  [data-reveal].pf-revealed,[data-reveal].revealed{opacity:1;transform:none;transition:opacity .7s var(--ease-out-expo),transform .7s var(--ease-out-expo)}
-  @media (prefers-reduced-motion:reduce){html.js [data-reveal]{opacity:1;transform:none}}
-
-  /* ── Noise + floating decor ── */
-  .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:256px 256px}
-  .floating-shape{position:fixed;border-radius:50%;pointer-events:none;filter:blur(90px);opacity:.05;z-index:0}
-  .shape-1{width:600px;height:600px;background:var(--accent);top:-200px;right:-200px}
-  .shape-2{width:420px;height:420px;background:var(--accent-secondary);bottom:-120px;left:-120px}
-
-  /* ── Nav ── */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:difference}
-  .nav-logo{font:500 12px/1 var(--font-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--fg)}
-  .nav-right{display:flex;align-items:center;gap:28px}
-  .nav-links{display:flex;gap:28px;list-style:none}
-  .nav-links a{font:400 11px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg);position:relative;padding:6px 0}
-  .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease-out-expo)}
-  .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
-  .nav-palette-btn{font:500 11px/1 var(--font-mono);letter-spacing:.1em;color:var(--accent);background:var(--accent-soft);border:1px solid var(--border-accent);border-radius:7px;padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .3s}
-  .nav-palette-btn:hover{background:var(--accent-glow)}
-  .nav-palette-btn kbd{font:500 10px/1 var(--font-mono);opacity:.7}
-
-  /* ── Hero ── */
-  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 48px;overflow:hidden}
-  .hero-neural{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.65}
-  .hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 50%,#000 25%,transparent 72%)}
-  .hero-inner{position:relative;z-index:2}
-  .hero-kicker{margin-bottom:26px}
-  .hero-kicker [data-split]{font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  .hero-title{font-family:var(--font-display);font-weight:800;line-height:.9;letter-spacing:-.04em}
-  .hero-title .line{display:block;overflow:hidden}
-  .hero-title .line-inner{display:block}
-  .line-1{font-size:clamp(3.4rem,12vw,11rem);color:var(--fg)}
-  .line-2{font-size:clamp(3.4rem,12vw,11rem);color:transparent;-webkit-text-stroke:1.5px var(--fg);margin-left:12%}
-  .line-3{font-size:clamp(3.4rem,12vw,11rem);color:var(--accent);margin-left:5%}
-  html.js .hero-title .line-inner{transform:translateY(110%);animation:heroLineUp .9s var(--ease-out-expo) forwards}
-  html.js .line-1 .line-inner{animation-delay:.12s}
-  html.js .line-2 .line-inner{animation-delay:.22s}
-  html.js .line-3 .line-inner{animation-delay:.32s}
-  @keyframes heroLineUp{to{transform:translateY(0)}}
-  .hero-sub{margin-top:38px;font:400 15px/1.6 var(--font-body);color:var(--fg-muted);max-width:52ch}
-  .hero-sub .accent{color:var(--fg)}
-  .hero-scroll{position:absolute;bottom:44px;left:48px;z-index:2;display:flex;align-items:center;gap:12px}
-  .scroll-line{width:1px;height:56px;background:linear-gradient(to bottom,var(--accent),transparent);position:relative;overflow:hidden}
-  .scroll-line::after{content:'';position:absolute;top:-56px;left:0;width:1px;height:56px;background:var(--accent);animation:scrollMove 2s ease-in-out infinite}
-  @keyframes scrollMove{100%{top:56px}}
-  .hero-scroll span{font:400 10px/1 var(--font-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim);writing-mode:vertical-rl}
-  .hero-tag{position:absolute;right:48px;bottom:44px;z-index:2;font:400 11px/1 var(--font-mono);letter-spacing:.1em;color:var(--fg-dim)}
-  .hero-tag .coord{color:var(--accent)}
-
-  /* ── Marquee ── */
-  .marquee{padding:20px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-elevated)}
-  .marquee-track{display:flex;gap:48px;width:-moz-max-content;width:max-content;animation:marquee 40s linear infinite}
-  .marquee:hover .marquee-track{animation-play-state:paused}
-  .marquee-track span{font:600 14px/1 var(--font-display);text-transform:uppercase;letter-spacing:.2em;color:var(--fg-dim);white-space:nowrap;display:flex;align-items:center;gap:48px}
-  .marquee-track span::after{content:'◆';color:var(--accent);font-size:8px}
-  @keyframes marquee{to{transform:translateX(-50%)}}
-
-  /* ── Sections ── */
-  section{padding:150px 48px;position:relative}
-  .container{max-width:1400px;margin:0 auto}
-  .section-label{font:400 10px/1 var(--font-mono);letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:56px;display:flex;align-items:center;gap:16px}
-  .section-label::before{content:'';width:32px;height:1px;background:var(--accent)}
-
-  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:100px}
-  .about-lead{font:600 clamp(1.7rem,3.2vw,2.9rem)/1.2 var(--font-display);letter-spacing:-.02em}
-  .about-lead .accent{color:var(--accent)}
-  .about-details{display:flex;flex-direction:column;gap:28px;padding-top:10px}
-  .about-row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--border);gap:20px}
-  .about-row .label{font:400 11px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-dim);white-space:nowrap}
-  .about-row .value{font-size:15px;color:var(--fg);text-align:right}
-  .about-row .value.hi{color:var(--accent)}
-
-  /* ── Metrics ── */
-  .metrics{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-elevated);padding:80px 48px}
-  .metrics-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:32px}
-  .metric{display:flex;flex-direction:column;gap:10px}
-  .metric-num{font:700 clamp(2.2rem,4vw,3.4rem)/1 var(--font-display);color:var(--accent);letter-spacing:-.03em}
-  .metric-label{font:400 12px/1.4 var(--font-mono);letter-spacing:.04em;color:var(--fg)}
-  .metric-note{font:400 11px/1.4 var(--font-mono);color:var(--fg-dim)}
-
-  /* ── Skills ── */
-  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-  .skill-cell{background:var(--bg-elevated);padding:40px 32px;position:relative;overflow:hidden;transition:background .4s}
-  .skill-cell:hover{background:var(--bg-card)}
-  .skill-cell::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--accent);transition:height .6s var(--ease-out-expo)}
-  .skill-cell:hover::before{height:100%}
-  .skill-n{font:500 10px/1 var(--font-mono);color:var(--accent);letter-spacing:.1em;opacity:.6;margin-bottom:18px}
-  .skill-name{font:700 clamp(1.15rem,2vw,1.5rem)/1.1 var(--font-display);letter-spacing:-.01em;margin-bottom:12px}
-  .skill-detail{font:400 11px/1.7 var(--font-mono);color:var(--fg-dim)}
-  .skill-bar{width:100%;height:2px;background:var(--border);margin-top:22px;overflow:hidden}
-  .skill-bar i{display:block;height:100%;background:var(--accent);width:0;transition:width 1.2s var(--ease-out-expo) .2s}
-  .skill-cell.pf-revealed .skill-bar i,.skill-cell.revealed .skill-bar i,html:not(.js) .skill-bar i{width:var(--lvl)}
-  @media (prefers-reduced-motion:reduce){.skill-bar i{width:var(--lvl)!important;transition:none}}
-
-  /* ── Experience ── */
-  .timeline{position:relative;margin-top:8px}
-  .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--border-accent),var(--border),transparent)}
-  .exp{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:44px 0 44px 48px;border-bottom:1px solid var(--border);position:relative}
-  .exp::before{content:'';position:absolute;left:-4px;top:52px;width:9px;height:9px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);transition:background .3s,transform .3s var(--ease-spring)}
-  .exp:hover::before{background:var(--accent);transform:scale(1.4)}
-  .exp-year{font:400 12px/1 var(--font-mono);color:var(--accent);letter-spacing:.1em;margin-bottom:8px}
-  .exp-co{font:600 13px/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;color:var(--fg-dim)}
-  .exp-role{font:700 clamp(1.3rem,2.5vw,1.9rem)/1.1 var(--font-display);letter-spacing:-.01em;margin-bottom:14px}
-  .exp-desc{font-size:15px;color:var(--fg-muted);line-height:1.7;max-width:620px}
-  .exp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-  .exp-tag{font:400 10px/1 var(--font-mono);letter-spacing:.08em;padding:6px 12px;border:1px solid var(--border);color:var(--fg-dim);border-radius:100px;transition:border-color .3s,color .3s}
-  .exp-tag:hover{border-color:var(--accent);color:var(--accent)}
-
-  /* ── Projects ── */
-  .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .project-card{background:var(--bg-elevated);border:1px solid var(--border);padding:40px;position:relative;overflow:hidden;cursor:pointer;transition:border-color .4s,transform .4s var(--ease-out-expo)}
-  .project-card:hover{border-color:var(--border-accent);transform:translateY(-4px)}
-  .project-card::after{content:'→';position:absolute;bottom:36px;right:36px;font:400 20px/1 var(--font-mono);color:var(--accent);opacity:0;transform:translateX(-8px);transition:opacity .4s,transform .4s var(--ease-out-expo)}
-  .project-card:hover::after{opacity:1;transform:translateX(0)}
-  .card-thumb{height:150px;border-radius:8px;overflow:hidden;margin-bottom:26px;position:relative;background:linear-gradient(135deg,#16170f,#0d0e0a);border:1px solid var(--border)}
-  .card-thumb img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;opacity:.9}
-  .card-thumb.gen{display:flex;align-items:center;justify-content:center}
-  .card-thumb.gen span{font:800 4rem/1 var(--font-display);color:var(--accent);opacity:.16;letter-spacing:-.04em}
-  .card-num{font:500 10px/1 var(--font-mono);color:var(--accent);letter-spacing:.15em;margin-bottom:14px}
-  .card-title{font:700 clamp(1.4rem,2.4vw,2rem)/1.15 var(--font-display);letter-spacing:-.02em;margin-bottom:14px}
-  .card-desc{font-size:14px;color:var(--fg-muted);line-height:1.7;margin-bottom:26px}
-  .card-tech{display:flex;flex-wrap:wrap;gap:6px}
-  .card-tech span{font:400 10px/1 var(--font-mono);letter-spacing:.06em;color:var(--fg-dim);padding:5px 10px;background:rgba(255,255,255,.03);border-radius:4px}
-
-  /* ── Education ── */
-  .edu-grid{display:flex;gap:20px}
-  .edu-card{flex:1;background:var(--bg-elevated);border:1px solid var(--border);padding:44px 36px;position:relative;overflow:hidden;transition:border-color .3s}
-  .edu-card:hover{border-color:var(--border-accent)}
-  .edu-badge{font:500 10px/1 var(--font-mono);letter-spacing:.15em;color:var(--accent);padding:6px 14px;border:1px solid var(--border-accent);display:inline-block;margin-bottom:26px}
-  .edu-school{font:700 clamp(1.15rem,2vw,1.5rem)/1.1 var(--font-display);letter-spacing:-.01em;margin-bottom:8px}
-  .edu-degree{font-size:14px;color:var(--fg-muted);line-height:1.6}
-  .edu-focus{margin-top:18px;font:400 11px/1.6 var(--font-mono);color:var(--fg-dim)}
-  .edu-deco{position:absolute;bottom:-20px;right:-20px;width:120px;height:120px;border:1px solid var(--border);border-radius:50%;opacity:.3}
-
-  /* ── Contact ── */
-  .contact{padding:180px 48px 120px}
-  .contact-links{max-width:1400px;margin:0 auto}
-  .clink{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-  .clink:first-child{border-top:1px solid var(--border)}
-  .clink::before{content:'';position:absolute;left:0;bottom:0;width:100%;height:100%;background:var(--accent-soft);transform:translateX(-101%);transition:transform .6s var(--ease-out-expo)}
-  .clink:hover::before{transform:translateX(0)}
-  .clink .l{font:600 clamp(1.2rem,2.5vw,2rem)/1 var(--font-display);letter-spacing:-.01em;position:relative;z-index:2;transition:color .4s}
-  .clink .v{font:400 13px/1 var(--font-mono);color:var(--fg-dim);position:relative;z-index:2;transition:color .3s,transform .3s var(--ease-out-expo)}
-  .clink:hover .l{color:var(--accent)}
-  .clink:hover .v{color:var(--accent);transform:translateX(-8px)}
-
-  footer{padding:44px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-  footer span{font:400 11px/1 var(--font-mono);color:var(--fg-dim);letter-spacing:.06em}
-  footer .a{color:var(--accent)}
-
-  /* ── Responsive ── */
-  @media (max-width:900px){
-    nav{padding:14px 22px}.nav-links{display:none}.nav-palette-btn{min-height:44px}
-    section{padding:96px 22px}.hero{padding:0 22px}
-    .metrics{padding:56px 22px}.metrics-grid{grid-template-columns:repeat(2,1fr);gap:28px}
-    .about-grid{grid-template-columns:1fr;gap:52px}.skills-grid{grid-template-columns:1fr}
-    .projects-grid{grid-template-columns:1fr}.edu-grid{flex-direction:column}
-    .exp{grid-template-columns:1fr;gap:14px}.line-2{margin-left:6%}.line-3{margin-left:0}
-    .hero-scroll{left:22px}.hero-tag{right:22px}footer{padding:28px 22px;flex-direction:column;gap:8px}
+  :root[data-theme="light"] {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --border: #e4e2dc;
+    --border-strong: #cfccc4;
+    --text: #18181a;
+    --muted: #55555b;
+    --faint: #8a8a90;
+    --accent: #18181a;
+    color-scheme: light;
   }
-  @media (max-width:560px){.line-2{margin-left:0}.metrics-grid{grid-template-columns:1fr 1fr}}
-  @media (prefers-reduced-motion:reduce){.marquee-track,.scroll-line::after{animation:none}.floating-shape{display:none}html.js .hero-title .line-inner{transform:none;animation:none}}
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #faf9f6;
+      --surface: #ffffff;
+      --border: #e4e2dc;
+      --border-strong: #cfccc4;
+      --text: #18181a;
+      --muted: #55555b;
+      --faint: #8a8a90;
+      --accent: #18181a;
+      color-scheme: light;
+    }
+  }
 
-  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
-  @media print{.noise,.floating-shape,.hero-neural,.hero-grid,.marquee,.hero-scroll{display:none!important}nav{position:static;mix-blend-mode:normal}.hero{min-height:auto;padding:24px 0}section{padding:24px 0}}
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 15px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; transition: text-decoration-color .15s; }
+  a:hover { text-decoration-color: var(--text); }
+  :focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 4px; }
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 16px; top: 12px; background: var(--surface); padding: 6px 10px; z-index: 10; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 5;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+  }
+  header.nav.scrolled { border-bottom-color: var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { font-family: var(--serif); font-size: 18px; text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 22px; font-size: 13px; }
+  .nav-links a { text-decoration: none; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .theme-btn {
+    background: none; border: 0; color: var(--muted); cursor: pointer;
+    width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border-radius: 6px;
+  }
+  .theme-btn:hover { color: var(--text); }
+  .theme-btn svg { width: 16px; height: 16px; }
+  @media (max-width: 560px) { .nav-links .hide-sm { display: none; } }
+
+  /* Typography helpers */
+  .kicker { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; letter-spacing: -.01em; }
+
+  /* Hero */
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 56px); line-height: 1.05; margin: 14px 0 18px; }
+  .hero .tagline { font-size: 18px; font-weight: 500; margin: 0 0 14px; }
+  .hero .lead { color: var(--muted); font-size: 16px; margin: 0; max-width: 640px; }
+  .hero .lead a { color: var(--text); }
+
+  .facts {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    margin: 36px 0 28px;
+  }
+  .fact { padding: 18px 18px 20px; border-left: 1px solid var(--border); }
+  .fact:first-child { border-left: 0; padding-left: 0; }
+  .fact h3 { font-size: 22px; margin: 10px 0 4px; }
+  .fact .role { font-size: 13px; font-weight: 600; margin: 0 0 12px; }
+  .fact p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.55; }
+  .fact .stat { color: var(--text); font-weight: 500; }
+  @media (max-width: 640px) {
+    .facts { grid-template-columns: 1fr; }
+    .fact { border-left: 0; border-top: 1px solid var(--border); padding: 18px 0; }
+    .fact:first-child { border-top: 0; }
+  }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
+  .cta a { font-weight: 500; }
+
+  /* Sections */
+  section { padding: 44px 0; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+  .section-head h2 { font-size: 28px; }
+  .section-head a { font-size: 13px; color: var(--muted); }
+
+  /* Cards */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 22px 24px; margin-bottom: 14px;
+  }
+  .card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .card h3 { font-size: 22px; }
+  .card .meta { font-size: 12px; color: var(--faint); font-family: var(--mono); }
+  .card .role { color: var(--muted); font-size: 14px; margin: 4px 0 12px; }
+  .card p { margin: 0; }
+  .card .outcome { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13px; }
+  .card .outcome b { font-weight: 600; }
+  .card .outcome span { color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tag { font: 400 11px/1 var(--mono); color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 5px 9px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid2 .card { margin: 0; }
+  .grid2 .card h3 { font-size: 20px; }
+  .grid2 .card p { font-size: 14px; color: var(--muted); margin-top: 8px; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+
+  /* Timeline rows (experience / education) */
+  .rows { border-top: 1px solid var(--border); }
+  .row { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .row .when { font: 400 12px/1.6 var(--mono); color: var(--faint); padding-top: 4px; }
+  .row h3 { font-size: 20px; }
+  .row .role { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+  .row p { margin: 0; font-size: 14px; }
+  .row ul { margin: 0; padding-left: 18px; font-size: 14px; }
+  .row li + li { margin-top: 4px; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Path */
+  .path p { font-size: 16px; color: var(--muted); margin: 0 0 14px; max-width: 640px; }
+  .path p strong { color: var(--text); font-weight: 500; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+  .skill { padding: 14px 0; border-top: 1px solid var(--border); }
+  .skill .kicker { display: block; margin-bottom: 8px; }
+  .skill p { margin: 0; font-size: 14px; }
+  @media (max-width: 560px) { .skills { grid-template-columns: 1fr; } }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .contact-grid .card { margin: 0; }
+  .contact-grid .card p { color: var(--muted); font-size: 14px; margin: 6px 0 12px; }
+  .contact-grid .card a { font-weight: 500; font-size: 14px; word-break: break-word; }
+  @media (max-width: 560px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  footer { padding: 36px 0 48px; color: var(--faint); font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--border); padding-top: 22px; }
+  footer a { color: var(--muted); }
 </style>
 </head>
 <body>
-<div class="noise" aria-hidden="true"></div>
-<div class="floating-shape shape-1" aria-hidden="true"></div>
-<div class="floating-shape shape-2" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav aria-label="Primary">
-  <a class="nav-logo" href="#main" data-egg-logo>PI_</a>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-palette-btn" data-open-palette aria-label="Open command palette">⌘K <kbd>menu</kbd></button>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Pranaav Iyer</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#experience" class="hide-sm">Experience</a>
+      <a href="#about" class="hide-sm">About</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle light and dark theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </nav>
   </div>
-</nav>
+</header>
 
 <main id="main">
-  <!-- HERO -->
-  <section class="hero">
-    <canvas class="hero-neural" data-neural aria-hidden="true"></canvas>
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div class="hero-kicker"><span data-split>ML Engineer / Full Stack / CS @ NYU</span></div>
-      <h1 class="hero-title" data-egg-title>
-        <span class="line line-1"><span class="line-inner">Pranaav</span></span>
-        <span class="line line-2"><span class="line-inner">Iyer</span></span>
-        <span class="line line-3"><span class="line-inner">Engineer_</span></span>
-      </h1>
-      <p class="hero-sub">I build <span class="accent">intelligent systems</span> that bridge raw data and real-world impact — real-time ASL translation, trading engines, and AI agents.</p>
-    </div>
-    <div class="hero-scroll" aria-hidden="true"><div class="scroll-line"></div><span>Scroll</span></div>
-    <div class="hero-tag" aria-hidden="true"><span class="coord">37.5°N</span> · <span class="coord">122.0°W</span></div>
-  </section>
+  <div class="wrap" id="top">
 
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true"><div class="marquee-track">
-    <span>Machine Learning</span><span>Full Stack</span><span>Computer Vision</span><span>NLP</span><span>React.js</span><span>PyTorch</span><span>TensorFlow</span>
-    <span>Machine Learning</span><span>Full Stack</span><span>Computer Vision</span><span>NLP</span><span>React.js</span><span>PyTorch</span><span>TensorFlow</span>
-  </div></div>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="name">
+      <div class="kicker">M.S. CS @ NYU · Fremont, CA</div>
+      <h1 id="name">Pranaav Iyer</h1>
+      <p class="tagline">ML engineer, full-stack developer, builder.</p>
+      <p class="lead">I build intelligent systems that turn raw data into real-world impact: real-time ASL translation, trading engines and AI agents. I'm a RAS Intern at <a href="https://www.ibm.com" target="_blank" rel="noopener">IBM</a>, finishing my M.S. in Computer Science at NYU, and open to full-time roles starting 2027.</p>
 
-  <!-- ABOUT -->
-  <section id="about" aria-label="About"><div class="container">
-    <h2 class="section-label">01 — About</h2>
-    <div class="about-grid">
-      <div class="about-lead">I build <span class="accent">intelligent systems</span> that bridge the gap between <span class="accent">raw data</span> and <span class="accent">real-world impact</span> — from real-time ASL translation to automated trading engines.</div>
-      <div class="about-details">
-        <div class="about-row" data-reveal><span class="label">Location</span><span class="value">Fremont, CA</span></div>
-        <div class="about-row" data-reveal><span class="label">Education</span><span class="value">M.S. Computer Science, NYU · 4.0 GPA</span></div>
-        <div class="about-row" data-reveal><span class="label">Languages</span><span class="value">Python · React.js · SQL · C/C++ · Java</span></div>
-        <div class="about-row" data-reveal><span class="label">Status</span><span class="value hi">RAS Intern @ IBM · open to full-time '27</span></div>
+      <div class="facts">
+        <div class="fact">
+          <div class="kicker">01 / Current</div>
+          <h3>IBM</h3>
+          <p class="role">RAS Intern</p>
+          <p>Building and shipping production software with IBM's engineering teams.</p>
+        </div>
+        <div class="fact">
+          <div class="kicker">02 / Studying</div>
+          <h3>NYU Courant</h3>
+          <p class="role">M.S. Computer Science</p>
+          <p><span class="stat">4.0 GPA</span><br>Expected May 2027</p>
+        </div>
+        <div class="fact">
+          <div class="kicker">03 / Built</div>
+          <h3>ASL Translator</h3>
+          <p class="role">Real-time CV + NLP</p>
+          <p><span class="stat">&lt;150 ms</span> inference latency<br><span class="stat">2</span> papers submitted (IEEE, JMAI)</p>
+        </div>
       </div>
-    </div>
-  </div></section>
 
-  <!-- METRICS -->
-  <div class="metrics" role="region" aria-label="Key metrics"><div class="metrics-grid">
-    <div class="metric" data-reveal><span class="metric-num" data-count="150" data-prefix="&lt;" data-suffix="ms">&lt;150ms</span><span class="metric-label">ASL inference latency</span><span class="metric-note">real-time on commodity hardware</span></div>
-    <div class="metric" data-reveal><span class="metric-num" data-count="15" data-prefix="+" data-suffix="%">+15%</span><span class="metric-label">OCR model accuracy</span><span class="metric-note">data profiling @ Avyay</span></div>
-    <div class="metric" data-reveal><span class="metric-num" data-count="40" data-prefix="+" data-suffix="%">+40%</span><span class="metric-label">perf test coverage</span><span class="metric-note">automated benchmarking</span></div>
-    <div class="metric" data-reveal><span class="metric-num" data-count="2">2</span><span class="metric-label">research papers</span><span class="metric-note">submitted to IEEE &amp; JMAI</span></div>
-    <div class="metric" data-reveal><span class="metric-num" data-count="4.0" data-decimals="1">4.0</span><span class="metric-label">GPA @ NYU</span><span class="metric-note">M.S. Computer Science</span></div>
-    <div class="metric" data-reveal><span class="metric-num" data-count="6" data-suffix="+">6+</span><span class="metric-label">projects shipped</span><span class="metric-note">CV · trading · AI agents</span></div>
-  </div></div>
-
-  <!-- SKILLS -->
-  <section id="skills" aria-label="Expertise"><div class="container">
-    <h2 class="section-label">02 — Expertise</h2>
-    <div class="skills-grid">
-      <div class="skill-cell" data-reveal style="--lvl:92%"><div class="skill-n">01</div><div class="skill-name">Programming</div><div class="skill-detail">Python · React.js · SQL · C/C++ · Java · JS · CSS · HTML</div><div class="skill-bar"><i></i></div></div>
-      <div class="skill-cell" data-reveal style="--lvl:88%"><div class="skill-n">02</div><div class="skill-name">AI / Machine Learning</div><div class="skill-detail">TensorFlow · PyTorch · NLP · OCR · Automation</div><div class="skill-bar"><i></i></div></div>
-      <div class="skill-cell" data-reveal style="--lvl:85%"><div class="skill-n">03</div><div class="skill-name">Development Tools</div><div class="skill-detail">Docker · Flask · Jupyter Notebook · OpenCV</div><div class="skill-bar"><i></i></div></div>
-      <div class="skill-cell" data-reveal style="--lvl:90%"><div class="skill-n">04</div><div class="skill-name">Computer Vision</div><div class="skill-detail">OpenCV · MediaPipe · Pose Estimation · Real-time Inference</div><div class="skill-bar"><i></i></div></div>
-      <div class="skill-cell" data-reveal style="--lvl:82%"><div class="skill-n">05</div><div class="skill-name">Research &amp; Writing</div><div class="skill-detail">IEEE Publications · Technical Documentation · EDA</div><div class="skill-bar"><i></i></div></div>
-      <div class="skill-cell" data-reveal style="--lvl:78%"><div class="skill-n">06</div><div class="skill-name">Leadership</div><div class="skill-detail">Team Direction · Mentorship · Project Management</div><div class="skill-bar"><i></i></div></div>
-    </div>
-  </div></section>
-
-  <!-- EXPERIENCE -->
-  <section id="work" aria-label="Experience"><div class="container">
-    <h2 class="section-label">03 — Experience</h2>
-    <div class="timeline">
-      <div class="exp" data-reveal>
-        <div class="exp-meta"><div class="exp-year">May 2026 — Present</div><div class="exp-co">IBM</div></div>
-        <div><div class="exp-role">RAS Intern</div><p class="exp-desc">Building and shipping production software at IBM as a RAS Intern, working alongside their engineering teams.</p><div class="exp-tags"><span class="exp-tag">IBM</span><span class="exp-tag">RAS</span><span class="exp-tag">Internship</span></div></div>
+      <div class="cta">
+        <a href="#work">Explore my work</a>
+        <a href="#contact">Get in touch</a>
+        <a href="/Pranaav_Iyer_CV.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
       </div>
-      <div class="exp" data-reveal>
-        <div class="exp-meta"><div class="exp-year">May 2022 — Aug 2022</div><div class="exp-co">Avyay Solutions</div></div>
-        <div><div class="exp-role">Machine Learning Intern</div><p class="exp-desc">Improved OCR model accuracy by ~15% through targeted data profiling, outlier reduction, and redesigned preprocessing pipelines. Partnered with Google engineers on Image AI (OCR) solutions that cut customer issue-resolution time by 20%, and authored an onboarding whitepaper that sped up how new hires ramped on the OCR stack.</p><div class="exp-tags"><span class="exp-tag">OCR</span><span class="exp-tag">Python</span><span class="exp-tag">Pandas</span><span class="exp-tag">NumPy</span><span class="exp-tag">Google OCR</span></div></div>
+    </section>
+
+    <!-- Selected work -->
+    <section id="work" aria-labelledby="work-h">
+      <div class="section-head">
+        <h2 id="work-h">Selected work</h2>
+        <a href="https://github.com/Pranaav003" target="_blank" rel="noopener">GitHub →</a>
       </div>
-      <div class="exp" data-reveal>
-        <div class="exp-meta"><div class="exp-year">May 2019 — Aug 2020</div><div class="exp-co">Krypt, Inc.</div></div>
-        <div><div class="exp-role">Documentation Intern</div><p class="exp-desc">Produced and streamlined 20+ pages of AI/ML technical documentation, improving onboarding speed and documentation accuracy by 25%. Interviewed senior engineers to capture workflows into standardized references adopted by engineering and QA, and contributed to a harmonized classification plan projected to strengthen compliance efforts by 20%.</p><div class="exp-tags"><span class="exp-tag">Technical Writing</span><span class="exp-tag">AI/ML</span><span class="exp-tag">Compliance</span><span class="exp-tag">Documentation</span></div></div>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>ASL Video Translator</h3>
+          <span class="meta">Research · Computer vision</span>
+        </div>
+        <p class="role">Creator</p>
+        <p>A real-time ASL-to-English system. It reads hand and body pose from live video with OpenCV and MediaPipe, classifies signs with TensorFlow, and uses an LLM to turn the sign stream into natural English.</p>
+        <div class="outcome">
+          <div><b>&lt;150 ms</b> <span>inference latency</span></div>
+          <div><b>2</b> <span>research papers submitted to IEEE &amp; JMAI</span></div>
+        </div>
+        <div class="tags"><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">TensorFlow</span><span class="tag">ChatGPT</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Thinkorswim Trading Bot</h3>
+          <span class="meta">Trading · Automation</span>
+        </div>
+        <p class="role">Creator</p>
+        <p>A trading bot built on the Thinkorswim APIs that combines AI, chart signals and a range of indicators with a trader's market expertise, executed through rule-based frameworks.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Thinkorswim API</span><span class="tag">AI</span><span class="tag">Indicators</span></div>
+      </article>
+
+      <div class="grid2">
+        <article class="card">
+          <h3>HearSay</h3>
+          <p>Translates ASL gestures into spoken audio in real time for phone calls, closing the gap between signers and hearing callers.</p>
+          <div class="tags"><span class="tag">Computer vision</span><span class="tag">NLP</span><span class="tag">Real-time</span></div>
+        </article>
+        <article class="card">
+          <h3>Debrief</h3>
+          <p>A meeting agent that gathers context from Zoom calls and turns ideas into action items, automating the gap between conversation and execution.</p>
+          <div class="tags"><span class="tag">AI agent</span><span class="tag">Zoom API</span><span class="tag">NLP</span></div>
+        </article>
+        <article class="card">
+          <h3>Signal</h3>
+          <p>Lead monitoring for business owners finding their niche. Tracks signals and surfaces opportunities automatically.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Data pipeline</span></div>
+        </article>
+        <article class="card">
+          <h3>Centra</h3>
+          <p>A productivity app for the modern attention problem. Helps people reclaim focus and build healthier digital habits through intelligent tracking.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Behavioral ML</span></div>
+        </article>
       </div>
-    </div>
-  </div></section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" aria-label="Projects"><div class="container">
-    <h2 class="section-label">04 — Projects</h2>
-    <div class="projects-grid">
-      <article class="project-card" data-project="001" data-reveal>
-        <div class="card-thumb"><img src="/Asl.jpg" alt="ASL Video Translator screenshot" loading="lazy" onerror="this.parentElement.classList.add('gen');this.replaceWith(Object.assign(document.createElement('span'),{textContent:'01'}))"></div>
-        <div class="card-num">001</div><div class="card-title">ASL Video Translator</div>
-        <p class="card-desc">Real-time ASL-to-English system using OpenCV, MediaPipe, TensorFlow, and ChatGPT achieving sub-150ms inference latency. Authored two research papers submitted to IEEE and JMAI.</p>
-        <div class="card-tech"><span>OpenCV</span><span>MediaPipe</span><span>TensorFlow</span><span>ChatGPT</span></div>
-      </article>
-      <article class="project-card" data-project="002" data-reveal>
-        <div class="card-thumb"><img src="/TradingBotImg.png" alt="Thinkorswim Trading Bot screenshot" loading="lazy" onerror="this.parentElement.classList.add('gen');this.replaceWith(Object.assign(document.createElement('span'),{textContent:'02'}))"></div>
-        <div class="card-num">002</div><div class="card-title">Thinkorswim Trading Bot</div>
-        <p class="card-desc">Versatile trading bot harnessing AI, chart signals, and diverse indicators, enriched by a trader's market expertise. Built around ThinkorSwim APIs with rule-based execution frameworks.</p>
-        <div class="card-tech"><span>Python</span><span>ThinkorSwim API</span><span>AI</span><span>Indicators</span></div>
-      </article>
-      <article class="project-card" data-project="003" data-reveal>
-        <div class="card-thumb"><img src="/Voicely.jpg" alt="HearSay screenshot" loading="lazy" onerror="this.parentElement.classList.add('gen');this.replaceWith(Object.assign(document.createElement('span'),{textContent:'03'}))"></div>
-        <div class="card-num">003</div><div class="card-title">HearSay</div>
-        <p class="card-desc">App that translates ASL gestures into spoken audio in real-time for phone calls — bridging communication gaps with computer vision and NLP.</p>
-        <div class="card-tech"><span>ASL</span><span>Computer Vision</span><span>Real-time</span><span>NLP</span></div>
-      </article>
-      <article class="project-card" data-project="004" data-reveal>
-        <div class="card-thumb gen"><span>04</span></div>
-        <div class="card-num">004</div><div class="card-title">Debrief</div>
-        <p class="card-desc">Meeting debrief agent that gathers context from Zoom meetings and turns ideas into action. Automates the gap between conversation and execution.</p>
-        <div class="card-tech"><span>AI Agent</span><span>Zoom API</span><span>NLP</span><span>Automation</span></div>
-      </article>
-      <article class="project-card" data-project="005" data-reveal>
-        <div class="card-thumb gen"><span>05</span></div>
-        <div class="card-num">005</div><div class="card-title">Signal</div>
-        <p class="card-desc">Lead monitoring tool for business owners looking for their niche. Tracks signals and surfaces opportunities automatically.</p>
-        <div class="card-tech"><span>Python</span><span>Monitoring</span><span>Data Pipeline</span></div>
-      </article>
-      <article class="project-card" data-project="006" data-reveal>
-        <div class="card-thumb gen"><span>06</span></div>
-        <div class="card-num">006</div><div class="card-title">Centra</div>
-        <p class="card-desc">Productivity app designed for the modern addiction — helping users reclaim focus and build healthier digital habits through intelligent tracking.</p>
-        <div class="card-tech"><span>Productivity</span><span>Behavioral ML</span><span>React</span></div>
-      </article>
-    </div>
-  </div></section>
+    <!-- Experience -->
+    <section id="experience" aria-labelledby="exp-h">
+      <div class="section-head"><h2 id="exp-h">Experience</h2></div>
+      <div class="rows">
+        <div class="row">
+          <div class="when">May 2026 — Present</div>
+          <div>
+            <h3>IBM</h3>
+            <p class="role">RAS Intern</p>
+            <p>Building and shipping production software alongside IBM's engineering teams.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">May — Aug 2022</div>
+          <div>
+            <h3>Avyay Solutions</h3>
+            <p class="role">Machine Learning Intern</p>
+            <ul>
+              <li>Improved OCR model accuracy by ~15% through data profiling, outlier reduction and redesigned preprocessing.</li>
+              <li>Partnered with Google engineers on Image AI (OCR) solutions that cut customer issue-resolution time by 20%.</li>
+              <li>Wrote the onboarding whitepaper new hires used to ramp up on the OCR stack.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">May 2019 — Aug 2020</div>
+          <div>
+            <h3>Krypt, Inc.</h3>
+            <p class="role">Documentation Intern</p>
+            <ul>
+              <li>Produced 20+ pages of AI/ML technical documentation, improving onboarding speed and accuracy by 25%.</li>
+              <li>Interviewed senior engineers to turn their workflows into standard references adopted by engineering and QA.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- EDUCATION -->
-  <section id="education" aria-label="Education"><div class="container">
-    <h2 class="section-label">05 — Education</h2>
-    <div class="edu-grid">
-      <div class="edu-card" data-reveal><div class="edu-badge">Expected May 2027</div><div class="edu-school">New York University</div><div class="edu-degree">M.S. Computer Science — GPA 4.0/4.0</div><div class="edu-focus">Courant Institute · Fundamental Algorithms · Artificial Intelligence · Machine Learning · Programming Languages · Operating Systems</div><div class="edu-deco" aria-hidden="true"></div></div>
-      <div class="edu-card" data-reveal><div class="edu-badge">Jul 2021 — May 2025</div><div class="edu-school">Purdue University Fort Wayne</div><div class="edu-degree">B.S. Computer Science — GPA 3.5/4.0</div><div class="edu-focus">Minor: Mathematics &amp; Business · Data Structures · Software Engineering · Computer Architecture · Computer Security · Computer Networks · Discrete Math · Calculus I–II</div><div class="edu-deco" aria-hidden="true"></div></div>
-    </div>
-  </div></section>
+    <!-- About / path -->
+    <section id="about" class="path" aria-labelledby="about-h">
+      <div class="section-head"><h2 id="about-h">The path here</h2></div>
+      <p>My first internship was writing AI/ML documentation at <strong>Krypt</strong>, turning how senior engineers worked into references their engineering and QA teams adopted.</p>
+      <p>At <strong>Purdue Fort Wayne</strong> I studied computer science with minors in math and business, and spent a summer at <strong>Avyay</strong> making OCR models measurably better. On the side I built the things I wanted to exist: a real-time ASL translator that became two research papers, and a trading bot.</p>
+      <p>Now I'm at <strong>NYU Courant</strong> for my M.S. and interning at <strong>IBM</strong>, focused on ML systems that work in the real world, not just in a notebook.</p>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact" aria-label="Connect"><div class="contact-links">
-    <h2 class="section-label">06 — Connect</h2>
-    <a class="clink" data-reveal href="mailto:pranaav.iyer@gmail.com"><span class="l">Email</span><span class="v">pranaav.iyer@gmail.com →</span></a>
-    <a class="clink" data-reveal href="/Pranaav_Iyer_CV.pdf" target="_blank" rel="noopener"><span class="l">Résumé</span><span class="v">PDF ↗</span></a>
-    <a class="clink" data-reveal href="https://www.linkedin.com/in/pranaav-iyer/" target="_blank" rel="noopener noreferrer"><span class="l">LinkedIn</span><span class="v">in/pranaav-iyer ↗</span></a>
-    <a class="clink" data-reveal href="https://github.com/Pranaav003" target="_blank" rel="noopener noreferrer"><span class="l">GitHub</span><span class="v">@Pranaav003 ↗</span></a>
-    <a class="clink" data-reveal href="https://pranaaviyer.com" target="_blank" rel="noopener noreferrer"><span class="l">Website</span><span class="v">pranaaviyer.com ↗</span></a>
-    <a class="clink" data-reveal href="tel:+14088632110"><span class="l">Phone</span><span class="v">+1 408 863 2110 →</span></a>
-  </div></section>
+      <div class="skills" style="margin-top: 26px;">
+        <div class="skill"><span class="kicker">Languages</span><p>Python · C/C++ · Java · SQL · JavaScript · HTML/CSS</p></div>
+        <div class="skill"><span class="kicker">ML / AI</span><p>PyTorch · TensorFlow · NLP · OCR · Computer vision</p></div>
+        <div class="skill"><span class="kicker">Tools</span><p>React · Flask · Docker · OpenCV · MediaPipe · Jupyter</p></div>
+        <div class="skill"><span class="kicker">Education</span><p>M.S. CS, NYU (4.0, May 2027) · B.S. CS, Purdue Fort Wayne (3.5, May 2025)</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-h">
+      <div class="section-head"><h2 id="contact-h">Get in touch</h2></div>
+      <div class="contact-grid">
+        <div class="card">
+          <span class="kicker">Roles</span>
+          <p>Full-time ML / software engineering roles from 2027, research and collaborations.</p>
+          <a href="mailto:pranaav.iyer@gmail.com">pranaav.iyer@gmail.com</a>
+        </div>
+        <div class="card">
+          <span class="kicker">Elsewhere</span>
+          <p>Code, background and the full résumé.</p>
+          <a href="https://www.linkedin.com/in/pranaav-iyer/" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="https://github.com/Pranaav003" target="_blank" rel="noopener">GitHub</a> ·
+          <a href="/Pranaav_Iyer_CV.pdf" target="_blank" rel="noopener">Résumé</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </main>
 
 <footer>
-  <span>© 2026 Pranaav Iyer</span>
-  <span>Designed with <span class="a">intent</span> · press <span class="a">⌘K</span></span>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Pranaav Iyer</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-  integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-  integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
-  crossorigin="anonymous"></script>
-<script>if(window.gsap&&window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);</script>
 <script>
-/* ── inlined: variants/assets/content.js ── */
-/* ============================================================================
- * content.js — Single source of truth for every variant.
- * Reconciled with the live main (927eddc): IBM RAS Intern role, updated
- * experience copy, real project links (incl. the IEEE paper DOI), résumé
- * (Pranaav_Iyer_CV.pdf), custom domain pranaaviyer.com, corrected Purdue GPA
- * (3.5), and coursework. Nothing invented — everything mirrors the live site.
- * Exposed as window.PORTFOLIO so vanilla variant pages can consume it.
- * ==========================================================================*/
-(function (root) {
-  "use strict";
-
-  const PORTFOLIO = {
-    identity: {
-      name: "Pranaav Iyer",
-      firstName: "Pranaav",
-      lastName: "Iyer",
-      role: "Engineer",
-      tagline: ["ML Engineer", "Full Stack Developer", "CS @ NYU"],
-      blurb:
-        "M.S. Computer Science at NYU. I build intelligent systems that bridge raw data and real-world impact — real-time ASL translation, trading engines, and AI agents.",
-      coords: { lat: "37.5°N", lon: "122.0°W", place: "Fremont, CA" },
-      status: "RAS Intern @ IBM · open to full-time '27",
-      site: "https://pranaaviyer.com/",
-    },
-
-    // Verbatim from the live "About" section.
-    about: {
-      lead: [
-        { t: "I build " },
-        { t: "intelligent systems", accent: true },
-        { t: " that bridge the gap between " },
-        { t: "raw data", accent: true },
-        { t: " and " },
-        { t: "real-world impact", accent: true },
-        { t: " — from real-time ASL translation to automated trading engines." },
-      ],
-      details: [
-        { label: "Location", value: "Fremont, CA" },
-        { label: "Education", value: "M.S. Computer Science, NYU · 4.0 GPA" },
-        { label: "Languages", value: "Python · React.js · SQL · C/C++ · Java" },
-        { label: "Status", value: "RAS Intern @ IBM · open to full-time '27", highlight: true },
-      ],
-    },
-
-    // Honest metrics — each already stated in the live project/experience copy.
-    metrics: [
-      { value: 150, prefix: "<", suffix: "ms", label: "ASL inference latency", note: "real-time on commodity hardware" },
-      { value: 15, prefix: "+", suffix: "%", label: "OCR model accuracy", note: "targeted data profiling @ Avyay" },
-      { value: 40, prefix: "+", suffix: "%", label: "perf test coverage", note: "automated benchmarking tools" },
-      { value: 2, prefix: "", suffix: "", label: "research papers", note: "submitted to IEEE & JMAI" },
-      { value: 4.0, prefix: "", suffix: "", label: "GPA @ NYU", note: "M.S. Computer Science", decimals: 1 },
-      { value: 6, prefix: "", suffix: "+", label: "projects shipped", note: "CV · trading · AI agents" },
-    ],
-
-    skills: [
-      { n: "01", name: "Programming", detail: "Python · React.js · SQL · C/C++ · Java · JS · CSS · HTML", level: 92 },
-      { n: "02", name: "AI / Machine Learning", detail: "TensorFlow · PyTorch · NLP · OCR · Automation", level: 88 },
-      { n: "03", name: "Development Tools", detail: "Docker · Flask · Jupyter Notebook · OpenCV", level: 85 },
-      { n: "04", name: "Computer Vision", detail: "OpenCV · MediaPipe · Pose Estimation · Real-time Inference", level: 90 },
-      { n: "05", name: "Research & Writing", detail: "IEEE Publications · Technical Documentation · EDA", level: 82 },
-      { n: "06", name: "Leadership", detail: "Team Direction · Mentorship · Project Management", level: 78 },
-    ],
-
-    // Three roles, matching the live site (newest first).
-    experience: [
-      {
-        year: "May 2026 — Present",
-        company: "IBM",
-        role: "RAS Intern",
-        desc:
-          "Building and shipping production software at IBM as a RAS Intern, working alongside their engineering teams.",
-        tags: ["IBM", "RAS", "Internship"],
-      },
-      {
-        year: "May 2022 — Aug 2022",
-        company: "Avyay Solutions",
-        role: "Machine Learning Intern",
-        desc:
-          "Improved OCR model accuracy by ~15% through targeted data profiling, outlier reduction, and redesigned preprocessing pipelines. Partnered with Google engineers on Image AI (OCR) solutions that cut customer issue-resolution time by 20%, and authored an onboarding whitepaper that sped up how new hires ramped on the OCR stack.",
-        tags: ["OCR", "Python", "Pandas", "NumPy", "Google OCR"],
-      },
-      {
-        year: "May 2019 — Aug 2020",
-        company: "Krypt, Inc.",
-        role: "Documentation Intern",
-        desc:
-          "Produced and streamlined 20+ pages of AI/ML technical documentation, improving onboarding speed and documentation accuracy by 25%. Interviewed senior engineers to capture workflows into standardized references adopted by engineering and QA, and contributed to a harmonized classification plan projected to strengthen compliance efforts by 20%.",
-        tags: ["Technical Writing", "AI/ML", "Compliance", "Documentation"],
-      },
-    ],
-
-    // Content kept as-is per the brief. `image` maps to files in /public.
-    // `links` are the real repo/paper links from the live site.
-    projects: [
-      {
-        num: "001",
-        title: "ASL Video Translator",
-        desc:
-          "Real-time ASL-to-English system using OpenCV, MediaPipe, TensorFlow, and ChatGPT achieving sub-150ms inference latency. Authored two research papers submitted to IEEE and JMAI.",
-        detail:
-          "A real-time American Sign Language to English pipeline. MediaPipe extracts hand and pose landmarks, a TensorFlow model classifies gestures, and a ChatGPT pass smooths the recognized tokens into natural English — all under 150ms of end-to-end latency so the conversation stays live. The work produced two research papers submitted to IEEE and JMAI.",
-        tech: ["OpenCV", "MediaPipe", "TensorFlow", "ChatGPT"],
-        image: "/Asl.jpg",
-        links: [
-          { label: "GitHub", href: "https://github.com/Pranaav003/ASLWebSite" },
-          { label: "IEEE Paper", href: "https://doi.org/10.1109/ICDICI66477.2025.11135376" },
-        ],
-        tag: "Computer Vision · Research",
-      },
-      {
-        num: "002",
-        title: "Thinkorswim Trading Bot",
-        desc:
-          "Versatile trading bot harnessing AI, chart signals, and diverse indicators, enriched by a trader's market expertise. Built around ThinkorSwim APIs with rule-based execution frameworks.",
-        detail:
-          "An automated trading engine built on the ThinkorSwim APIs. It fuses AI-derived chart signals with a library of technical indicators and a rule-based execution framework, encoding a trader's market intuition into deterministic, backtestable logic.",
-        tech: ["Python", "ThinkorSwim API", "AI", "Indicators"],
-        image: "/TradingBotImg.png",
-        links: [{ label: "GitHub", href: "https://github.com/Pranaav003/Thinkorswim-Trading-Bot" }],
-        tag: "Automation · Finance",
-      },
-      {
-        num: "003",
-        title: "HearSay",
-        desc:
-          "App that translates ASL gestures into spoken audio in real-time for phone calls — bridging communication gaps with computer vision and NLP.",
-        detail:
-          "HearSay takes the ASL translation pipeline to the phone. It converts signed gestures into spoken audio during live phone calls, letting Deaf and hard-of-hearing users be heard on any voice line — computer vision on the front end, NLP and text-to-speech on the back.",
-        tech: ["ASL", "Computer Vision", "Real-time", "NLP"],
-        image: "/Voicely.jpg",
-        links: [{ label: "GitHub", href: "https://github.com/Pranaav003/HearSay" }],
-        tag: "Accessibility · Real-time",
-      },
-      {
-        num: "004",
-        title: "Debrief",
-        desc:
-          "Meeting debrief agent that gathers context from Zoom meetings and turns ideas into action. Automates the gap between conversation and execution.",
-        detail:
-          "Debrief is an AI agent that sits on your Zoom meetings, captures the context and decisions, and turns loose ideas into structured, assignable action — closing the gap between what a team says it will do and what actually gets done.",
-        tech: ["AI Agent", "Zoom API", "NLP", "Automation"],
-        image: null,
-        links: [{ label: "GitHub", href: "https://github.com/Pranaav003/Debrief" }],
-        tag: "AI Agent · Productivity",
-      },
-      {
-        num: "005",
-        title: "Signal",
-        desc:
-          "Lead monitoring tool for business owners looking for their niche. Tracks signals and surfaces opportunities automatically.",
-        detail:
-          "Signal watches the web for the moments that matter to a business owner hunting their niche — new leads, competitor moves, market openings — and surfaces the opportunities automatically through a lightweight data pipeline so the owner acts first.",
-        tech: ["Python", "Monitoring", "Data Pipeline"],
-        image: null,
-        links: [{ label: "GitHub", href: "https://github.com/Pranaav003/Signal" }],
-        tag: "Data Pipeline · Monitoring",
-      },
-      {
-        num: "006",
-        title: "Centra",
-        desc:
-          "Productivity app designed for the modern addiction — helping users reclaim focus and build healthier digital habits through intelligent tracking.",
-        detail:
-          "Centra is a productivity app aimed at the modern attention economy. It uses intelligent, behaviour-aware tracking to help users notice their patterns, reclaim focus, and build healthier digital habits — nudges over nags.",
-        tech: ["Productivity", "Behavioral ML", "React"],
-        image: null,
-        links: [{ label: "GitHub", href: "https://github.com/Pranaav003/Centra" }],
-        tag: "Behavioral ML · React",
-      },
-    ],
-
-    education: [
-      {
-        badge: "Expected May 2027",
-        school: "New York University",
-        degree: "M.S. Computer Science — GPA 4.0/4.0",
-        focus: "Courant Institute · Fundamental Algorithms · Artificial Intelligence · Machine Learning · Programming Languages · Operating Systems",
-      },
-      {
-        badge: "Jul 2021 — May 2025",
-        school: "Purdue University Fort Wayne",
-        degree: "B.S. Computer Science — GPA 3.5/4.0",
-        focus: "Minor: Mathematics & Business · Data Structures · Software Engineering · Computer Architecture · Computer Security · Computer Networks · Discrete Math · Calculus I–II",
-      },
-    ],
-
-    marquee: [
-      "Machine Learning", "Full Stack", "Computer Vision", "NLP",
-      "React.js", "PyTorch", "TensorFlow",
-    ],
-
-    // Six links, matching the live Connect section (order: Email, Résumé, LinkedIn, GitHub, Website, Phone).
-    contact: [
-      { label: "Email", href: "mailto:pranaav.iyer@gmail.com", value: "pranaav.iyer@gmail.com", cmd: "email" },
-      { label: "Résumé", href: "/Pranaav_Iyer_CV.pdf", value: "PDF", cmd: "cv" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/pranaav-iyer/", value: "in/pranaav-iyer", external: true, cmd: "linkedin" },
-      { label: "GitHub", href: "https://github.com/Pranaav003", value: "@Pranaav003", external: true, cmd: "github" },
-      { label: "Website", href: "https://pranaaviyer.com/", value: "pranaaviyer.com", external: true, cmd: "website" },
-      { label: "Phone", href: "tel:+14088632110", value: "+1 408 863 2110", cmd: "phone" },
-    ],
-
-    resume: "/Pranaav_Iyer_CV.pdf",
-
-    sections: [
-      { id: "about", label: "About", n: "01" },
-      { id: "skills", label: "Skills", n: "02" },
-      { id: "work", label: "Work", n: "03" },
-      { id: "projects", label: "Projects", n: "04" },
-      { id: "education", label: "Education", n: "05" },
-      { id: "contact", label: "Contact", n: "06" },
-    ],
-  };
-
-  root.PORTFOLIO = PORTFOLIO;
-  if (typeof module !== "undefined" && module.exports) module.exports = PORTFOLIO;
-})(typeof window !== "undefined" ? window : globalThis);
-
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeBtn');
+    btn.addEventListener('click', function () {
+      var current = root.dataset.theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      var next = current === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  })();
 </script>
-<script>
-/* ── inlined: variants/assets/engine.js ── */
-/* ============================================================================
- * engine.js — Shared behavior engine for every portfolio variant.
- *
- * Design contract
- * ---------------
- * Variants own LOOK (layout + CSS). The engine owns BEHAVIOR so all three
- * variants act identically and correctly. The engine injects its own DOM for
- * the ⌘K palette, project drawer, custom cursor and scroll-progress bar, all
- * themed through `--pf-*` CSS custom properties that a variant sets on :root.
- *
- * Variant hooks (attributes the engine looks for):
- *   [data-open-palette]        → element(s) that open the ⌘K palette on click
- *   [data-project="001"]       → a project card; opens the drawer for that num
- *   [data-count="150"]         → number that counts up on scroll
- *      + [data-prefix] [data-suffix] [data-decimals]
- *   [data-reveal]              → element revealed on scroll (staggered per parent)
- *      + [data-reveal-delay]   → optional extra ms delay
- *   [data-neural]              → <canvas> that hosts the neural-net field
- *   [data-split]               → element whose text is split into per-char spans
- *   a[href^="#"]               → smooth-scrolled to target (offset for fixed nav)
- *
- * Correctness invariants (enforced here so no variant can regress them):
- *   - prefers-reduced-motion: every animation degrades to its final state.
- *   - no-JS: engine never hides content; reveal/countup only ADD motion.
- *   - GSAP optional: reveals/parallax use GSAP if present, else IntersectionObserver.
- *   - focus trap + Esc + aria on every overlay; scroll lock while open.
- *   - custom cursor only on (pointer:fine); disabled on touch.
- * ==========================================================================*/
-(function (root) {
-  "use strict";
-
-  // ── Environment flags ──────────────────────────────────────────────────
-  const hasDOM = typeof document !== "undefined";
-  const mm = (q) => (typeof matchMedia === "function" ? matchMedia(q) : { matches: false, addEventListener() {} });
-  const prefersReduced = () => mm("(prefers-reduced-motion: reduce)").matches;
-  const finePointer = () => mm("(pointer: fine)").matches;
-  const hasGSAP = () => typeof root.gsap !== "undefined";
-  const hasScrollTrigger = () => hasGSAP() && typeof root.ScrollTrigger !== "undefined";
-
-  // ── Easing (pure) ────────────────────────────────────────────────────────
-  const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
-  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-
-  /** Escape HTML special characters to prevent XSS in innerHTML contexts. Pure + testable. */
-  function escapeHTML(str) {
-    return String(str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-
-  // ══════════════════════════════════════════════════════════════════════
-  //  PURE LOGIC — unit-tested in engine.test.mjs (no DOM required)
-  // ══════════════════════════════════════════════════════════════════════
-
-  /** Build the ⌘K command registry from portfolio content. Pure + testable. */
-  function buildCommands(P) {
-    const cmds = [];
-    (P.sections || []).forEach((s) =>
-      cmds.push({
-        id: "go-" + s.id,
-        title: "Go to " + s.label,
-        hint: s.n,
-        keywords: ["nav", "goto", "section", s.id, s.label.toLowerCase()],
-        kind: "nav",
-        target: "#" + s.id,
-      })
-    );
-    if (P.resume)
-      cmds.push({ id: "resume", title: "Open résumé (PDF)", hint: "↵", keywords: ["cv", "resume", "pdf", "download"], kind: "external", target: P.resume });
-    (P.contact || []).forEach((c) =>
-      cmds.push({
-        id: c.cmd || c.label.toLowerCase(),
-        title: c.label + " — " + c.value,
-        hint: c.external ? "↗" : "↵",
-        keywords: [c.label.toLowerCase(), c.value.toLowerCase(), "contact", "reach"],
-        kind: c.external ? "external" : "link",
-        target: c.href,
-      })
-    );
-    cmds.push({ id: "whoami", title: "whoami", hint: "$", keywords: ["who", "bio", "about", "identity"], kind: "print",
-      output: (P.identity.name + " — " + P.identity.tagline.join(" · ") + ". " + P.identity.blurb) });
-    cmds.push({ id: "help", title: "help — list commands", hint: "?", keywords: ["help", "commands", "?"], kind: "help" });
-    cmds.push({ id: "sudo-hire", title: "sudo hire pranaav", hint: "⚡", keywords: ["hire", "sudo", "job", "recruit", "offer"], kind: "hire" });
-    cmds.push({ id: "theme", title: "Toggle accent theme", hint: "◐", keywords: ["theme", "accent", "color", "dark", "light"], kind: "theme" });
-    cmds.push({ id: "matrix", title: "Enter the matrix", hint: "▓", keywords: ["matrix", "rain", "easter", "fun"], kind: "matrix" });
-    cmds.push({ id: "clear", title: "clear output", hint: "⌫", keywords: ["clear", "reset", "cls"], kind: "clear" });
-    return cmds;
-  }
-
-  /**
-   * Filter + rank commands for a query. Pure + testable.
-   * Empty query → all commands in registry order. Otherwise a lightweight
-   * subsequence/substring match ranked by match quality.
-   */
-  function filterCommands(cmds, query) {
-    const q = String(query || "").trim().toLowerCase();
-    if (!q) return cmds.slice();
-    const scored = [];
-    for (const c of cmds) {
-      const hay = (c.title + " " + (c.keywords || []).join(" ")).toLowerCase();
-      let score = -1;
-      if (hay.startsWith(q)) score = 100;
-      else if (c.title.toLowerCase().startsWith(q)) score = 90;
-      else if (hay.includes(q)) score = 60 - hay.indexOf(q) * 0.01;
-      else if (isSubsequence(q, hay)) score = 20;
-      if (score >= 0) scored.push({ c, score });
-    }
-    scored.sort((a, b) => b.score - a.score);
-    return scored.map((s) => s.c);
-  }
-
-  function isSubsequence(needle, hay) {
-    let i = 0;
-    for (let j = 0; j < hay.length && i < needle.length; j++) if (hay[j] === needle[i]) i++;
-    return i === needle.length;
-  }
-
-  /**
-   * Deterministic-when-seeded node field for the neural hero. Pure + testable.
-   * rng defaults to Math.random; tests pass a seeded rng for determinism.
-   */
-  function genNodes(count, w, h, rng) {
-    rng = rng || Math.random;
-    const nodes = [];
-    for (let i = 0; i < count; i++) {
-      nodes.push({
-        x: rng() * w,
-        y: rng() * h,
-        vx: (rng() - 0.5) * 0.25,
-        vy: (rng() - 0.5) * 0.25,
-        r: 1 + rng() * 1.6,
-      });
-    }
-    return nodes;
-  }
-
-  /** Edges between nodes closer than maxDist. Pure + testable. */
-  function connectNodes(nodes, maxDist) {
-    const edges = [];
-    const md2 = maxDist * maxDist;
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const d2 = dx * dx + dy * dy;
-        if (d2 < md2) edges.push({ a: i, b: j, alpha: 1 - Math.sqrt(d2) / maxDist });
-      }
-    }
-    return edges;
-  }
-
-  /** Node count scaled to viewport area, capped for performance. Pure. */
-  function nodeCountFor(w, h) {
-    return clamp(Math.round((w * h) / 22000), 22, 90);
-  }
-
-  /** Format a counter value. Pure + testable. */
-  function formatCount(value, { prefix = "", suffix = "", decimals = 0 } = {}) {
-    const n = decimals > 0 ? Number(value).toFixed(decimals) : Math.round(value).toString();
-    return prefix + n + suffix;
-  }
-
-  // ══════════════════════════════════════════════════════════════════════
-  //  DOM — only runs in the browser
-  // ══════════════════════════════════════════════════════════════════════
-
-  const listeners = []; // teardown registry (used by tests / hot reload)
-  function on(el, ev, fn, opts) { el.addEventListener(ev, fn, opts); listeners.push(() => el.removeEventListener(ev, fn, opts)); }
-
-  // ── Base stylesheet (structural only; colors come from --pf-* on :root) ──
-  function injectBaseCSS() {
-    if (document.getElementById("pf-engine-css")) return;
-    const css = `
-    :root{
-      --pf-accent: var(--accent, #c8ff00);
-      --pf-bg: var(--bg, #0a0a0b);
-      --pf-surface: var(--bg-elevated, #111113);
-      --pf-fg: var(--fg, #e8e6e3);
-      --pf-fg-dim: var(--fg-dim, #767472);
-      --pf-border: var(--border, rgba(255,255,255,.08));
-      --pf-mono: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace);
-      --pf-display: var(--font-display, 'Syne', sans-serif);
-      --pf-radius: 12px;
-      --pf-ease: cubic-bezier(.16,1,.3,1);
-    }
-    /* Custom cursor */
-    .pf-cursor-dot,.pf-cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:10000;border-radius:50%;transform:translate(-50%,-50%);will-change:transform}
-    .pf-cursor-dot{width:8px;height:8px;background:var(--pf-accent);mix-blend-mode:difference;transition:width .3s,height .3s}
-    .pf-cursor-ring{width:38px;height:38px;border:1px solid color-mix(in srgb,var(--pf-accent) 45%,transparent);transition:width .4s var(--pf-ease),height .4s var(--pf-ease),opacity .3s}
-    .pf-cursor-dot.pf-hover{width:0;height:0}
-    .pf-cursor-ring.pf-hover{width:66px;height:66px;border-color:var(--pf-accent)}
-    body.pf-cursor-ready{cursor:none}
-    body.pf-cursor-ready a,body.pf-cursor-ready button,body.pf-cursor-ready [data-project]{cursor:none}
-    @media (hover:none),(pointer:coarse){.pf-cursor-dot,.pf-cursor-ring{display:none!important}body.pf-cursor-ready{cursor:auto}}
-    /* Scroll progress */
-    .pf-progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--pf-accent);z-index:9999;transform:scaleX(0);transform-origin:left}
-    /* Skip link */
-    .pf-skip{position:fixed;left:12px;top:-60px;z-index:10002;background:var(--pf-accent);color:#000;padding:10px 16px;border-radius:6px;font:600 13px/1 var(--pf-mono);text-decoration:none;transition:top .2s}
-    .pf-skip:focus{top:12px}
-    /* Overlays (palette + drawer share the scrim) */
-    .pf-scrim{position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .28s var(--pf-ease),visibility .28s}
-    .pf-scrim.pf-open{opacity:1;visibility:visible}
-    /* ⌘K palette */
-    .pf-palette{position:fixed;left:50%;top:14vh;transform:translate(-50%,-8px) scale(.98);width:min(640px,92vw);max-height:70vh;display:flex;flex-direction:column;
-      background:var(--pf-surface);border:1px solid var(--pf-border);border-radius:var(--pf-radius);z-index:10002;opacity:0;visibility:hidden;overflow:hidden;
-      box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px color-mix(in srgb,var(--pf-accent) 12%,transparent);transition:opacity .28s var(--pf-ease),transform .28s var(--pf-ease),visibility .28s}
-    .pf-palette.pf-open{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1)}
-    .pf-palette-in{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--pf-border)}
-    .pf-palette-in .pf-prompt{color:var(--pf-accent);font:600 15px/1 var(--pf-mono)}
-    .pf-palette-in input{flex:1;background:none;border:none;outline:none;color:var(--pf-fg);font:400 15px/1.4 var(--pf-mono);caret-color:var(--pf-accent)}
-    .pf-palette-in kbd{font:500 10px/1 var(--pf-mono);color:var(--pf-fg-dim);border:1px solid var(--pf-border);border-radius:4px;padding:4px 7px}
-    .pf-list{list-style:none;margin:0;padding:8px;overflow-y:auto;overscroll-behavior:contain}
-    .pf-list li{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:8px;cursor:pointer;color:var(--pf-fg)}
-    .pf-list li .pf-i{width:22px;color:var(--pf-accent);font:500 12px/1 var(--pf-mono);text-align:center;flex-shrink:0}
-    .pf-list li .pf-t{flex:1;font:400 14px/1.3 var(--pf-mono)}
-    .pf-list li .pf-h{color:var(--pf-fg-dim);font:500 11px/1 var(--pf-mono)}
-    .pf-list li[aria-selected="true"],.pf-list li:hover{background:color-mix(in srgb,var(--pf-accent) 12%,transparent);outline:1px solid color-mix(in srgb,var(--pf-accent) 30%,transparent)}
-    .pf-out{padding:0 18px;color:var(--pf-fg-dim);font:400 12.5px/1.7 var(--pf-mono);max-height:34vh;overflow:auto}
-    .pf-out:not(:empty){padding:14px 18px;border-top:1px solid var(--pf-border)}
-    .pf-out .pf-line{white-space:pre-wrap}
-    .pf-out .pf-ok{color:var(--pf-accent)}
-    /* Project drawer */
-    .pf-drawer{position:fixed;top:0;right:0;height:100%;width:min(560px,94vw);z-index:10002;background:var(--pf-surface);border-left:1px solid var(--pf-border);
-      transform:translateX(102%);transition:transform .4s var(--pf-ease);overflow-y:auto;box-shadow:-30px 0 80px rgba(0,0,0,.5)}
-    .pf-drawer.pf-open{transform:translateX(0)}
-    .pf-drawer .pf-d-hd{position:sticky;top:0;background:var(--pf-surface);display:flex;justify-content:space-between;align-items:center;padding:20px 26px;border-bottom:1px solid var(--pf-border);z-index:1}
-    .pf-drawer .pf-d-num{color:var(--pf-accent);font:500 12px/1 var(--pf-mono);letter-spacing:.15em}
-    .pf-drawer .pf-d-close{background:none;border:1px solid var(--pf-border);color:var(--pf-fg);border-radius:8px;width:36px;height:36px;font-size:16px;cursor:pointer;transition:border-color .3s,color .3s}
-    .pf-drawer .pf-d-close:hover{border-color:var(--pf-accent);color:var(--pf-accent)}
-    .pf-drawer .pf-d-body{padding:26px 26px 60px}
-    .pf-drawer .pf-d-img{width:100%;border-radius:10px;border:1px solid var(--pf-border);margin-bottom:24px;display:block}
-    .pf-drawer h3{font:700 clamp(1.5rem,3vw,2.1rem)/1.1 var(--pf-display);color:var(--pf-fg);letter-spacing:-.02em;margin-bottom:8px}
-    .pf-drawer .pf-d-tag{font:500 11px/1 var(--pf-mono);color:var(--pf-accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
-    .pf-drawer .pf-d-desc{font:400 15px/1.75 var(--pf-mono,inherit);color:var(--pf-fg);opacity:.85;margin-bottom:26px}
-    .pf-drawer .pf-d-tech{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
-    .pf-drawer .pf-d-tech span{font:500 11px/1 var(--pf-mono);color:var(--pf-fg-dim);border:1px solid var(--pf-border);border-radius:100px;padding:6px 12px}
-    .pf-drawer .pf-d-links{display:flex;gap:12px;flex-wrap:wrap}
-    .pf-drawer .pf-d-links a{font:600 13px/1 var(--pf-mono);color:#000;background:var(--pf-accent);border-radius:8px;padding:12px 18px;text-decoration:none;transition:transform .2s var(--pf-ease)}
-    .pf-drawer .pf-d-links a:hover{transform:translateY(-2px)}
-    /* Easter eggs: toast + matrix rain */
-    .pf-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);z-index:10003;font:500 12px/1 var(--pf-mono);color:#000;background:var(--pf-accent);padding:12px 20px;border-radius:6px;opacity:0;transition:transform .5s var(--pf-ease),opacity .5s;white-space:nowrap;pointer-events:none;max-width:90vw;overflow:hidden;text-overflow:ellipsis}
-    .pf-toast.pf-show{opacity:1;transform:translateX(-50%) translateY(0)}
-    #pf-matrix{position:fixed;inset:0;z-index:9997;pointer-events:none;opacity:0;transition:opacity .5s}
-    #pf-matrix.pf-on{opacity:.14}
-    @media (prefers-reduced-motion:reduce){
-      .pf-scrim,.pf-palette,.pf-drawer,.pf-cursor-dot,.pf-cursor-ring,.pf-toast{transition:none!important}
-    }`;
-    const el = document.createElement("style");
-    el.id = "pf-engine-css";
-    el.textContent = css;
-    document.head.appendChild(el);
-  }
-
-  // ── Focus trap utility ───────────────────────────────────────────────────
-  const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
-  function trapFocus(container, e) {
-    const f = [...container.querySelectorAll(FOCUSABLE)].filter((n) => n.offsetParent !== null || n === document.activeElement);
-    if (!f.length) return;
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  }
-  let scrollLocks = 0;
-  const lockScroll = () => { if (scrollLocks++ === 0) document.body.style.overflow = "hidden"; };
-  const unlockScroll = () => { if (scrollLocks > 0 && --scrollLocks === 0) document.body.style.overflow = ""; };
-  /** Reset scroll lock counter — used for testing and emergency recovery. */
-  const resetScrollLocks = () => { scrollLocks = 0; if (hasDOM) document.body.style.overflow = ""; };
-
-  // ── Custom cursor ─────────────────────────────────────────────────────────
-  function initCursor() {
-    if (!finePointer()) return;
-    const dot = document.createElement("div"); dot.className = "pf-cursor-dot"; dot.setAttribute("aria-hidden", "true");
-    const ring = document.createElement("div"); ring.className = "pf-cursor-ring"; ring.setAttribute("aria-hidden", "true");
-    document.body.append(dot, ring); document.body.classList.add("pf-cursor-ready");
-    let mx = 0, my = 0, dx = 0, dy = 0, rx = 0, ry = 0;
-    on(document, "mousemove", (e) => { mx = e.clientX; my = e.clientY; });
-    let cursorRaf = 0;
-    function cursorLoop() {
-      dx += (mx - dx) * 0.25; dy += (my - dy) * 0.25; rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      dot.style.transform = `translate(${dx}px,${dy}px) translate(-50%,-50%)`;
-      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-      cursorRaf = requestAnimationFrame(cursorLoop);
-    }
-    cursorRaf = requestAnimationFrame(cursorLoop);
-    on(document, "visibilitychange", () => {
-      if (document.hidden) { cancelAnimationFrame(cursorRaf); cursorRaf = 0; }
-      else if (!cursorRaf) { cursorRaf = requestAnimationFrame(cursorLoop); }
-    });
-    const hoverSel = "a,button,[data-project],[data-open-palette],input,.pf-list li";
-    on(document, "mouseover", (e) => { if (e.target.closest(hoverSel)) { dot.classList.add("pf-hover"); ring.classList.add("pf-hover"); } });
-    on(document, "mouseout", (e) => { if (e.target.closest(hoverSel)) { dot.classList.remove("pf-hover"); ring.classList.remove("pf-hover"); } });
-  }
-
-  // ── Scroll progress ────────────────────────────────────────────────────────
-  function initScrollProgress() {
-    const bar = document.createElement("div"); bar.className = "pf-progress"; bar.setAttribute("aria-hidden", "true");
-    document.body.appendChild(bar);
-    let ticking = false;
-    const upd = () => {
-      const h = document.documentElement.scrollHeight - innerHeight;
-      bar.style.transform = `scaleX(${h > 0 ? clamp(scrollY / h, 0, 1) : 0})`;
-      ticking = false;
-    };
-    on(window, "scroll", () => { if (!ticking) { requestAnimationFrame(upd); ticking = true; } }, { passive: true });
-    upd();
-  }
-
-  // ── Skip link ────────────────────────────────────────────────────────────
-  function initSkipLink(mainSel) {
-    if (document.querySelector(".pf-skip")) return;
-    const a = document.createElement("a"); a.className = "pf-skip"; a.href = mainSel || "#main"; a.textContent = "Skip to content";
-    document.body.insertBefore(a, document.body.firstChild);
-  }
-
-  // ── Smooth anchors ─────────────────────────────────────────────────────────
-  function initSmoothAnchors(offset) {
-    var off = typeof offset === "number" ? offset : 80;
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      on(a, "click", (e) => {
-        const id = a.getAttribute("href");
-        if (id.length < 2) return;
-        const t = document.querySelector(id);
-        if (!t) return;
-        e.preventDefault();
-        const y = t.getBoundingClientRect().top + scrollY - off;
-        scrollTo({ top: y, behavior: prefersReduced() ? "auto" : "smooth" });
-      });
-    });
-  }
-
-  // ── Scroll reveal (GSAP ScrollTrigger if present, else IO) ─────────────────
-  function initReveal() {
-    const els = [...document.querySelectorAll("[data-reveal]")];
-    if (!els.length) return;
-    if (prefersReduced()) { els.forEach((el) => el.classList.add("pf-revealed", "revealed")); return; }
-
-    if (hasScrollTrigger()) {
-      const groups = new Map();
-      els.forEach((el) => {
-        const p = el.parentElement; const n = groups.get(p) || 0; groups.set(p, n + 1);
-        root.gsap.fromTo(el, { opacity: 0, y: 34 }, {
-          opacity: 1, y: 0, duration: 0.7, ease: "expo.out", delay: (n * 60 + (+el.dataset.revealDelay || 0)) / 1000,
-          scrollTrigger: { trigger: el, start: "top 92%", once: true },
-          onStart: () => el.classList.add("pf-revealed", "revealed"),
-        });
-      });
-      return;
-    }
-    // Fallback: IntersectionObserver + CSS classes (variant styles .pf-revealed)
-    const groups = new Map();
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (!en.isIntersecting) return;
-        const d = +en.target.dataset.revealDelay || 0;
-        setTimeout(() => en.target.classList.add("pf-revealed", "revealed"), d);
-        io.unobserve(en.target);
-      });
-    }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
-    els.forEach((el) => {
-      const p = el.parentElement; const n = groups.get(p) || 0;
-      el.dataset.revealDelay = String(n * 60 + (+el.dataset.revealDelay || 0)); groups.set(p, n + 1);
-      io.observe(el);
-    });
-  }
-
-  // ── Character split for headline stagger (SplitText is paid → hand-roll) ───
-  function splitChars(el) {
-    if (!el || el.dataset.pfSplit === "done") return;
-    const text = el.textContent;
-    el.textContent = "";
-    el.setAttribute("aria-label", text);
-    [...text].forEach((ch) => {
-      const s = document.createElement("span");
-      s.className = "pf-char";
-      s.setAttribute("aria-hidden", "true");
-      s.style.display = "inline-block";
-      s.style.willChange = "transform,opacity";
-      s.textContent = ch === " " ? " " : ch;
-      el.appendChild(s);
-    });
-    el.dataset.pfSplit = "done";
-    return el.querySelectorAll(".pf-char");
-  }
-
-  function initSplitReveal() {
-    const targets = document.querySelectorAll("[data-split]");
-    targets.forEach((el) => {
-      const chars = splitChars(el);
-      if (!chars) return;
-      if (prefersReduced()) { chars.forEach((c) => { c.style.opacity = 1; c.style.transform = "none"; }); return; }
-      if (hasGSAP()) {
-        root.gsap.from(chars, { opacity: 0, yPercent: 110, rotateX: -40, duration: 0.7, stagger: 0.02, ease: "expo.out", delay: 0.1 });
-      } else {
-        chars.forEach((c, i) => {
-          c.style.opacity = 0; c.style.transform = "translateY(90%)";
-          c.style.transition = `opacity .6s var(--pf-ease) ${i * 20}ms, transform .7s var(--pf-ease) ${i * 20}ms`;
-          requestAnimationFrame(() => requestAnimationFrame(() => { c.style.opacity = 1; c.style.transform = "translateY(0)"; }));
-        });
-      }
-    });
-  }
-
-  // ── Count-up metrics ───────────────────────────────────────────────────────
-  function initCountUp() {
-    const els = [...document.querySelectorAll("[data-count]")];
-    if (!els.length) return;
-    const run = (el) => {
-      const end = parseFloat(el.dataset.count);
-      const opts = { prefix: el.dataset.prefix || "", suffix: el.dataset.suffix || "", decimals: +el.dataset.decimals || 0 };
-      if (prefersReduced()) { el.textContent = formatCount(end, opts); return; }
-      const dur = 1400; let t0 = null;
-      const step = (ts) => {
-        if (t0 === null) t0 = ts;
-        const p = clamp((ts - t0) / dur, 0, 1);
-        el.textContent = formatCount(end * easeOutExpo(p), opts);
-        if (p < 1) requestAnimationFrame(step);
-        else el.textContent = formatCount(end, opts);
-      };
-      requestAnimationFrame(step);
-    };
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } });
-    }, { threshold: 0.4 });
-    els.forEach((el) => { el.textContent = formatCount(0, { prefix: el.dataset.prefix || "", suffix: el.dataset.suffix || "", decimals: +el.dataset.decimals || 0 }); io.observe(el); });
-  }
-
-  // ── Neural-net hero canvas ──────────────────────────────────────────────────
-  function initNeuralHero() {
-    const canvas = document.querySelector("[data-neural]");
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    let nodes = [], w = 0, h = 0, dpr = clamp(root.devicePixelRatio || 1, 1, 2), raf = 0, running = false;
-    const accent = () => getComputedStyle(document.documentElement).getPropertyValue("--pf-accent").trim() || "#c8ff00";
-    const pointer = { x: -9999, y: -9999, active: false };
-    const MAXD = 132;
-
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      w = rect.width; h = rect.height;
-      canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      nodes = genNodes(nodeCountFor(w, h), w, h);
-    }
-    function hexA(hex, a) {
-      hex = hex.replace("#", "");
-      if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("");
-      const r = parseInt(hex.slice(0, 2), 16) || 200, g = parseInt(hex.slice(2, 4), 16) || 255, b = parseInt(hex.slice(4, 6), 16) || 0;
-      return `rgba(${r},${g},${b},${a})`;
-    }
-    function frame() {
-      if (!running) return;
-      ctx.clearRect(0, 0, w, h);
-      const col = accent();
-      for (const n of nodes) {
-        n.x += n.vx; n.y += n.vy;
-        if (n.x < 0 || n.x > w) n.vx *= -1;
-        if (n.y < 0 || n.y > h) n.vy *= -1;
-        if (pointer.active) {
-          const dx = n.x - pointer.x, dy = n.y - pointer.y, d = Math.hypot(dx, dy);
-          if (d < 120 && d > 0.01) { n.x += (dx / d) * 0.6; n.y += (dy / d) * 0.6; }
-        }
-      }
-      const edges = connectNodes(nodes, MAXD);
-      for (const e of edges) {
-        ctx.strokeStyle = hexA(col, e.alpha * 0.22);
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(nodes[e.a].x, nodes[e.a].y); ctx.lineTo(nodes[e.b].x, nodes[e.b].y); ctx.stroke();
-      }
-      for (const n of nodes) {
-        ctx.fillStyle = hexA(col, 0.5);
-        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
-      }
-      raf = requestAnimationFrame(frame);
-    }
-    function start() { if (!running && !prefersReduced() && !document.hidden) { running = true; frame(); } }
-    function stop() { running = false; cancelAnimationFrame(raf); }
-
-    resize();
-    if (prefersReduced()) {
-      // Draw a single static frame so the canvas isn't blank, then stay still.
-      const edges = connectNodes(nodes, MAXD); const col = accent();
-      edges.forEach((e) => { ctx.strokeStyle = hexA(col, e.alpha * 0.18); ctx.beginPath(); ctx.moveTo(nodes[e.a].x, nodes[e.a].y); ctx.lineTo(nodes[e.b].x, nodes[e.b].y); ctx.stroke(); });
-      nodes.forEach((n) => { ctx.fillStyle = hexA(col, 0.45); ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); });
-      return;
-    }
-    on(window, "resize", () => { dpr = clamp(root.devicePixelRatio || 1, 1, 2); resize(); });
-    on(document, "visibilitychange", () => (document.hidden ? stop() : start()));
-    if (finePointer()) {
-      on(canvas, "mousemove", (e) => { const r = canvas.getBoundingClientRect(); pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.active = true; });
-      on(canvas, "mouseleave", () => { pointer.active = false; pointer.x = pointer.y = -9999; });
-    }
-    // Only animate while the hero is on screen.
-    const io = new IntersectionObserver((es) => es.forEach((en) => (en.isIntersecting ? start() : stop())), { threshold: 0.01 });
-    io.observe(canvas);
-    start();
-  }
-
-  // ── ⌘K command palette ──────────────────────────────────────────────────────
-  function initPalette(P, hooks) {
-    hooks = hooks || {};
-    const commands = buildCommands(P);
-    const scrim = document.createElement("div"); scrim.className = "pf-scrim";
-    const pal = document.createElement("div");
-    pal.className = "pf-palette"; pal.setAttribute("role", "dialog"); pal.setAttribute("aria-modal", "true"); pal.setAttribute("aria-label", "Command palette");
-    pal.innerHTML =
-      '<div class="pf-palette-in"><span class="pf-prompt">$</span>' +
-      '<input type="text" autocomplete="off" spellcheck="false" aria-label="Type a command" placeholder="Type a command… (try &quot;help&quot;, &quot;projects&quot;, &quot;sudo hire&quot;)" />' +
-      '<kbd>ESC</kbd></div>' +
-      '<ul class="pf-list" role="listbox" aria-label="Commands"></ul>' +
-      '<div class="pf-out" aria-live="polite"></div>';
-    document.body.append(scrim, pal);
-    const input = pal.querySelector("input");
-    const list = pal.querySelector(".pf-list");
-    const out = pal.querySelector(".pf-out");
-    let filtered = commands.slice(), sel = 0, lastFocus = null, open = false;
-
-    function render() {
-      list.innerHTML = "";
-      filtered.forEach((c, i) => {
-        const li = document.createElement("li");
-        li.setAttribute("role", "option");
-        li.setAttribute("aria-selected", i === sel ? "true" : "false");
-        li.id = "pf-opt-" + i;
-        li.innerHTML = `<span class="pf-i">${c.hint || "›"}</span><span class="pf-t"></span><span class="pf-h">${c.kind}</span>`;
-        li.querySelector(".pf-t").textContent = c.title;
-        li.addEventListener("mouseenter", () => { sel = i; syncSel(); });
-        li.addEventListener("click", () => exec(c));
-        list.appendChild(li);
-      });
-      input.setAttribute("aria-activedescendant", filtered.length ? "pf-opt-" + sel : "");
-    }
-    function syncSel() {
-      [...list.children].forEach((li, i) => li.setAttribute("aria-selected", i === sel ? "true" : "false"));
-      const cur = list.children[sel];
-      if (cur) cur.scrollIntoView({ block: "nearest" });
-      input.setAttribute("aria-activedescendant", filtered.length ? "pf-opt-" + sel : "");
-    }
-    // print() accepts either pre-sanitized HTML (ok=true cases only, hardcoded strings) or
-    // plain text that must be HTML-escaped before insertion into innerHTML.
-    function printHTML(trustedHtml, ok) { out.innerHTML = `<div class="pf-line${ok ? " pf-ok" : ""}">${trustedHtml}</div>`; }
-    function print(text, ok) { printHTML(escapeHTML(text), ok); }
-
-    function exec(c) {
-      if (!c) return;
-      switch (c.kind) {
-        case "nav": {
-          close();
-          const t = document.querySelector(c.target);
-          if (t) { const y = t.getBoundingClientRect().top + scrollY - 80; scrollTo({ top: y, behavior: prefersReduced() ? "auto" : "smooth" }); }
-          break;
-        }
-        case "external": window.open(c.target, "_blank", "noopener"); close(); break;
-        case "link": location.href = c.target; break;
-        case "print": print(c.output); break;
-        case "help": print("Available: " + commands.filter((x) => x.kind !== "help").map((x) => x.id).join(", ")); break;
-        case "clear": out.innerHTML = ""; break;
-        // hire uses a hardcoded trusted HTML string with a <span> — use printHTML directly.
-        case "hire": printHTML("&#x2713; offer queued. Reach me at <span class='pf-ok'>pranaav.iyer@gmail.com</span> — I read every message.", true); break;
-        case "theme":
-          if (hooks.onTheme) hooks.onTheme();
-          else if (root.__pfEggs) { root.__pfEggs.toggleRainbow(); print("toggled rainbow accent (Konami code does this too)", true); }
-          else print("This variant ships a single accent.");
-          break;
-        case "matrix":
-          close();
-          if (hooks.onMatrix) hooks.onMatrix();
-          else if (root.__pfEggs) root.__pfEggs.toggleMatrix();
-          break;
-        default: print(c.title);
-      }
-    }
-
-    function open_() {
-      if (open) return; open = true;
-      lastFocus = document.activeElement;
-      input.value = ""; filtered = commands.slice(); sel = 0; render(); out.innerHTML = "";
-      scrim.classList.add("pf-open"); pal.classList.add("pf-open");
-      lockScroll();
-      setTimeout(() => input.focus(), 30);
-    }
-    function close() {
-      if (!open) return; open = false;
-      scrim.classList.remove("pf-open"); pal.classList.remove("pf-open");
-      unlockScroll();
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-
-    on(input, "input", () => { filtered = filterCommands(commands, input.value); sel = 0; render(); });
-    on(pal, "keydown", (e) => {
-      if (e.key === "Escape") { e.preventDefault(); close(); }
-      else if (e.key === "ArrowDown") { e.preventDefault(); if (filtered.length) { sel = (sel + 1) % filtered.length; syncSel(); } }
-      else if (e.key === "ArrowUp") { e.preventDefault(); if (filtered.length) { sel = (sel - 1 + filtered.length) % filtered.length; syncSel(); } }
-      else if (e.key === "Enter") { e.preventDefault(); exec(filtered[sel]); }
-      else if (e.key === "Tab") { trapFocus(pal, e); }
-    });
-    on(scrim, "click", close);
-    on(document, "keydown", (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); open ? close() : open_(); }
-      else if (e.key === "/" && !open && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) { e.preventDefault(); open_(); }
-    });
-    document.querySelectorAll("[data-open-palette]").forEach((b) => {
-      // Make any non-natively-focusable trigger (e.g. a styled div) keyboard-reachable.
-      if (b.tagName !== "BUTTON" && b.tagName !== "A" && !b.hasAttribute("tabindex")) b.tabIndex = 0;
-      on(b, "click", (e) => { e.preventDefault(); open_(); });
-      on(b, "keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open_(); } });
-    });
-
-    render();
-    return { open: open_, close, exec, commands };
-  }
-
-  // ── Project detail drawer ─────────────────────────────────────────────────────
-  function initDrawers(P) {
-    const byNum = new Map((P.projects || []).map((p) => [p.num, p]));
-    const scrim = document.createElement("div"); scrim.className = "pf-scrim";
-    const drawer = document.createElement("aside");
-    drawer.className = "pf-drawer"; drawer.setAttribute("role", "dialog"); drawer.setAttribute("aria-modal", "true"); drawer.setAttribute("aria-label", "Project detail"); drawer.tabIndex = -1;
-    drawer.innerHTML =
-      '<div class="pf-d-hd"><span class="pf-d-num"></span><button class="pf-d-close" aria-label="Close project detail">✕</button></div>' +
-      '<div class="pf-d-body"></div>';
-    document.body.append(scrim, drawer);
-    const numEl = drawer.querySelector(".pf-d-num");
-    const body = drawer.querySelector(".pf-d-body");
-    const closeBtn = drawer.querySelector(".pf-d-close");
-    let lastFocus = null, open = false;
-
-    function fill(p) {
-      numEl.textContent = p.num;
-      const img = p.image ? `<img class="pf-d-img" src="${p.image}" alt="${p.title} screenshot" loading="lazy" onerror="this.remove()">` : "";
-      const links = (p.links && p.links.length)
-        ? `<div class="pf-d-links">${p.links.map((l) => `<a href="${l.href}" target="_blank" rel="noopener noreferrer">${l.label} ↗</a>`).join("")}</div>`
-        : "";
-      body.innerHTML =
-        img +
-        (p.tag ? `<div class="pf-d-tag">${p.tag}</div>` : "") +
-        `<h3></h3>` +
-        `<p class="pf-d-desc"></p>` +
-        `<div class="pf-d-tech">${p.tech.map((t) => `<span></span>`).join("")}</div>` +
-        links;
-      body.querySelector("h3").textContent = p.title;
-      body.querySelector(".pf-d-desc").textContent = p.detail || p.desc;
-      body.querySelectorAll(".pf-d-tech span").forEach((s, i) => (s.textContent = p.tech[i]));
-    }
-    function open_(num) {
-      const p = byNum.get(num); if (!p) return;
-      fill(p); open = true; lastFocus = document.activeElement;
-      scrim.classList.add("pf-open"); drawer.classList.add("pf-open"); lockScroll();
-      setTimeout(() => drawer.focus(), 30);
-    }
-    function close() {
-      if (!open) return; open = false;
-      scrim.classList.remove("pf-open"); drawer.classList.remove("pf-open"); unlockScroll();
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-    on(closeBtn, "click", close);
-    on(scrim, "click", close);
-    on(drawer, "keydown", (e) => { if (e.key === "Escape") { e.preventDefault(); close(); } else if (e.key === "Tab") trapFocus(drawer, e); });
-
-    document.querySelectorAll("[data-project]").forEach((card) => {
-      if (!card.hasAttribute("tabindex")) card.tabIndex = 0;
-      if (!card.getAttribute("role")) card.setAttribute("role", "button");
-      const num = card.getAttribute("data-project");
-      card.setAttribute("aria-label", (byNum.get(num) ? byNum.get(num).title : "Project") + " — open details");
-      on(card, "click", () => open_(num));
-      on(card, "keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open_(num); } });
-    });
-    return { open: open_, close };
-  }
-
-  // ── Console signature (harmless easter egg, kept from the original) ───────────
-  function consoleSignature(P) {
-    try {
-      console.log("%c" + P.identity.name + " — " + P.identity.role, "color:#c8ff00;font:700 14px monospace");
-      console.log("%cPress ⌘K (or /) for the command palette.", "color:#8f8d8a;font:11px monospace");
-      console.log("%cEaster eggs: Konami ↑↑↓↓←→←→BA · press M · click the logo · click the title", "color:#8f8d8a;font:11px monospace");
-    } catch (e) {}
-  }
-
-  // ── Easter eggs (Konami→rainbow, M→matrix rain, logo/title clicks, toast) ────
-  function initEasterEggs(P, config) {
-    const toast = document.createElement("div");
-    toast.className = "pf-toast"; toast.setAttribute("role", "status"); toast.setAttribute("aria-live", "polite");
-    document.body.appendChild(toast);
-    let tTimer;
-    const showToast = (msg, dur) => { clearTimeout(tTimer); toast.textContent = msg; toast.classList.add("pf-show"); tTimer = setTimeout(() => toast.classList.remove("pf-show"), dur || 2600); };
-
-    // Konami → rainbow accent
-    const seq = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
-    let ki = 0, rainbow = false, hue = 0, rafR = 0;
-    function cycle() {
-      if (!rainbow) { cancelAnimationFrame(rafR); document.documentElement.style.removeProperty("--accent"); return; }
-      hue = (hue + 0.6) % 360;
-      document.documentElement.style.setProperty("--accent", "hsl(" + hue + ",100%,60%)");
-      rafR = requestAnimationFrame(cycle);
-    }
-    function toggleRainbow() {
-      rainbow = !rainbow;
-      if (rainbow) {
-        if (prefersReduced()) document.documentElement.style.setProperty("--accent", "hsl(300,100%,62%)");
-        else cycle();
-        showToast("✦ rainbow mode");
-      } else {
-        if (prefersReduced()) document.documentElement.style.removeProperty("--accent");
-        else cycle();
-        showToast("back to normal");
-      }
-    }
-
-    // Matrix rain (press M)
-    let mCanvas, mCtx, mOn = false, mInt, mCols, mDrops = [];
-    const mChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()π∑Δ";
-    function mInit() { mCanvas.width = innerWidth; mCanvas.height = innerHeight; mCols = Math.floor(innerWidth / 14); mDrops = Array.from({ length: mCols }, (_, i) => (mDrops[i] == null ? Math.random() * innerHeight / 14 : mDrops[i])); }
-    function mDraw() {
-      if (document.hidden) return;
-      mCtx.fillStyle = "rgba(10,10,11,0.07)"; mCtx.fillRect(0, 0, mCanvas.width, mCanvas.height);
-      mCtx.fillStyle = (getComputedStyle(document.documentElement).getPropertyValue("--pf-accent").trim() || "#c8ff00");
-      mCtx.font = "14px JetBrains Mono, monospace";
-      for (let i = 0; i < mCols; i++) {
-        mCtx.fillText(mChars[Math.floor(Math.random() * mChars.length)], i * 14, mDrops[i] * 14);
-        if (mDrops[i] * 14 > mCanvas.height && Math.random() > 0.975) mDrops[i] = 0;
-        mDrops[i]++;
-      }
-    }
-    function toggleMatrix() {
-      if (prefersReduced()) { showToast("matrix needs motion — enable it in your OS"); return; }
-      if (!mCanvas) { mCanvas = document.createElement("canvas"); mCanvas.id = "pf-matrix"; mCanvas.setAttribute("aria-hidden", "true"); document.body.appendChild(mCanvas); mCtx = mCanvas.getContext("2d"); if (!mCtx) return; }
-      mOn = !mOn; mCanvas.classList.toggle("pf-on", mOn);
-      if (mOn) { mDrops = []; mInit(); mInt = setInterval(mDraw, 50); showToast("⟩ matrix — press M to exit"); }
-      else { clearInterval(mInt); mInt = null; mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height); }
-    }
-    on(window, "resize", () => { if (mOn) mInit(); });
-    // Pause the matrix setInterval when the tab is hidden, restart on visibility.
-    on(document, "visibilitychange", () => {
-      if (!mOn) return;
-      if (document.hidden) { clearInterval(mInt); mInt = null; }
-      else if (!mInt) { mInt = setInterval(mDraw, 50); }
-    });
-
-    on(document, "keydown", (e) => {
-      const tag = document.activeElement && document.activeElement.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA") return;
-      const k = e.key && e.key.length === 1 ? e.key.toLowerCase() : e.key;
-      if (k === seq[ki]) { ki++; if (ki === seq.length) { ki = 0; toggleRainbow(); } } else { ki = k === seq[0] ? 1 : 0; }
-      if (k === "m" && !e.metaKey && !e.ctrlKey && !e.altKey) toggleMatrix();
-    });
-
-    // Logo (7 clicks) + title (message cycle) — opt-in via data attributes
-    const logo = document.querySelector("[data-egg-logo]");
-    if (logo) { let n = 0; on(logo, "click", () => { if (++n === 7) { showToast("🔓 the real résumé is the friends we compiled along the way"); n = 0; } }); }
-    const title = document.querySelector("[data-egg-title]");
-    if (title) {
-      const msgs = ["Hmm, interesting click.", "Clicking again? Bold.", "Persistent. I like that.", "Five stages of debugging.", "Try the Konami code ↑↑↓↓←→←→BA"];
-      let n = 0; on(title, "click", () => { showToast(msgs[Math.min(n, msgs.length - 1)]); if (++n > msgs.length + 1) n = 0; });
-    }
-
-    root.__pfEggs = { toggleRainbow, toggleMatrix, showToast };
-    root.__pfToast = showToast;
-  }
-
-  // ── Orchestrator ──────────────────────────────────────────────────────────────
-  function mount(P, config) {
-    if (!hasDOM) return;
-    config = config || {};
-    const go = () => {
-      injectBaseCSS();
-      if (config.skipLink !== false) initSkipLink(config.mainSelector);
-      if (config.scrollProgress !== false) initScrollProgress();
-      if (config.cursor) initCursor();
-      if (config.smoothAnchors !== false) initSmoothAnchors(config.anchorOffset);
-      if (config.neural !== false) initNeuralHero();
-      if (config.split !== false) initSplitReveal();
-      initReveal();
-      initCountUp();
-      if (config.easterEggs !== false) initEasterEggs(P, config);
-      const palette = config.palette !== false ? initPalette(P, config.paletteHooks) : null;
-      const drawers = config.drawers !== false ? initDrawers(P) : null;
-      consoleSignature(P);
-      root.__PF__ = { palette, drawers };
-    };
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
-    else go();
-  }
-
-  const API = {
-    // orchestration
-    mount, injectBaseCSS,
-    // individual features
-    initCursor, initScrollProgress, initSkipLink, initSmoothAnchors, initReveal,
-    initSplitReveal, initCountUp, initNeuralHero, initPalette, initDrawers, splitChars, consoleSignature, initEasterEggs,
-    // pure helpers (tested)
-    buildCommands, filterCommands, isSubsequence, genNodes, connectNodes, nodeCountFor, formatCount,
-    easeOutExpo, easeOutCubic, clamp, escapeHTML,
-    // scroll lock (exported for testing and emergency recovery)
-    lockScroll, unlockScroll, resetScrollLocks,
-    // env
-    prefersReduced, finePointer, hasGSAP, hasScrollTrigger,
-  };
-  root.PortfolioEngine = API;
-  if (typeof module !== "undefined" && module.exports) module.exports = API;
-})(typeof window !== "undefined" ? window : globalThis);
-
-</script>
-<script>PortfolioEngine.mount(PORTFOLIO, { cursor: true, anchorOffset: 80 });</script>
 </body>
 </html>
